@@ -1,17 +1,19 @@
 <template>
   <div class="ex-container">
-    <Main />
+    <Header />
+    <div class="mb-25"></div>
+    <router-view></router-view>
+    <Footer />
   </div>
 </template>
 
 <script>
-import Main from "@/pages/index.vue";
+import Header from "@/components/header.vue";
+import Footer from "@/components/footer.vue";
 
 export default {
   name: "App",
-  components: {
-    Main,
-  },
+  components: { Header, Footer },
 };
 </script>
 
@@ -61,6 +63,9 @@ export default {
 }
 .ml-5 {
   margin-left: 5px;
+}
+.mb-25 {
+  margin-bottom: 25px;
 }
 @media (min-width: 1400px) {
   .ex-container .container-xxl,

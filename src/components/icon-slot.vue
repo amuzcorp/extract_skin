@@ -12,6 +12,7 @@
 </template>
 <script>
 import chvronRight from "@/components/icons/chvron-right.vue";
+import BchvronRight from "@/components/icons/b-chvron-right.vue";
 import search from "@/components/icons/search.vue";
 import chvronDown from "@/components/icons/chvron-down.vue";
 import buy from "@/components/icons/mypage-buy.vue";
@@ -35,6 +36,8 @@ import videoClip from "@/components/icons/nav-video.vue";
 import model from "@/components/icons/nav-model.vue";
 import telephone from "@/components/icons/telephone.vue";
 import envelope from "@/components/icons/envelope.vue";
+import playFill from "@/components/icons/play-fill.vue";
+import stopFill from "@/components/icons/stop-fill.vue";
 
 export default {
   name: "iconSlot",
@@ -47,6 +50,7 @@ export default {
   },
   components: {
     chvronRight,
+    BchvronRight,
     search,
     chvronDown,
     buy,
@@ -70,6 +74,8 @@ export default {
     model,
     telephone,
     envelope,
+    playFill,
+    stopFill,
   },
   computed: {
     getViewBoxSize() {
@@ -90,6 +96,8 @@ export default {
       switch (this.iconName) {
         case "chvronRight":
           return "chvronRight";
+        case "BchvronRight":
+          return "BchvronRight";
         case "search":
           return "search";
         case "chvronDown":
@@ -136,6 +144,10 @@ export default {
           return "telephone";
         case "envelope":
           return "envelope";
+        case "playFill":
+          return "playFill";
+        case "stopFill":
+          return "stopFill";
         default:
           return "chvronRight";
       }
