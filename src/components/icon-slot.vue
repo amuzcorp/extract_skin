@@ -13,6 +13,7 @@
 <script>
 import chvronRight from "@/components/icons/chvron-right.vue";
 import BchvronRight from "@/components/icons/b-chvron-right.vue";
+import ButtonchvronRight from "@/components/icons/button-chvron-right.vue";
 import search from "@/components/icons/search.vue";
 import chvronDown from "@/components/icons/chvron-down.vue";
 import buy from "@/components/icons/mypage-buy.vue";
@@ -38,6 +39,7 @@ import telephone from "@/components/icons/telephone.vue";
 import envelope from "@/components/icons/envelope.vue";
 import playFill from "@/components/icons/play-fill.vue";
 import stopFill from "@/components/icons/stop-fill.vue";
+import floatTop from "@/components/icons/float-top.vue";
 
 export default {
   name: "iconSlot",
@@ -51,6 +53,7 @@ export default {
   components: {
     chvronRight,
     BchvronRight,
+    ButtonchvronRight,
     search,
     chvronDown,
     buy,
@@ -76,6 +79,7 @@ export default {
     envelope,
     playFill,
     stopFill,
+    floatTop,
   },
   computed: {
     getViewBoxSize() {
@@ -98,6 +102,8 @@ export default {
           return "chvronRight";
         case "BchvronRight":
           return "BchvronRight";
+        case "ButtonchvronRight":
+          return "ButtonchvronRight";
         case "search":
           return "search";
         case "chvronDown":
@@ -148,6 +154,8 @@ export default {
           return "playFill";
         case "stopFill":
           return "stopFill";
+        case "floatTop":
+          return "floatTop";
         default:
           return "chvronRight";
       }

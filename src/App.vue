@@ -52,6 +52,9 @@ export default {
 .ex-container a {
   text-decoration: unset;
 }
+.ex-container a:hover {
+  color: inherit;
+}
 .ex-container img {
   width: 100%;
 }
@@ -63,6 +66,9 @@ export default {
 }
 .ml-5 {
   margin-left: 5px;
+}
+.mb-15 {
+  margin-bottom: 15px !important;
 }
 .mb-25 {
   margin-bottom: 25px;
@@ -76,5 +82,14 @@ export default {
   .ex-container .container {
     max-width: 1280px;
   }
+}
+.ex-container .form-control:focus {
+  border-color: #6e3cbc;
+  box-shadow: 0 0 0 0.25rem rgb(110, 60, 188, 0.25);
+}
+.ex-container .contents-tit {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 </style>

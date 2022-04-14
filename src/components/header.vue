@@ -1,5 +1,19 @@
 <template>
   <div class="ex-header">
+    <!-- Floating Button -->
+    <div class="container fake-col" :class="{ show: scY > 300 }">
+      <div class="floating-btn">
+        <a @click="toTop">
+          <icon-slot
+            :iconName="'floatTop'"
+            :svgHeight="27"
+            :svgWidth="14"
+            :iconColor="'#707070'"
+          />
+        </a>
+      </div>
+    </div>
+
     <b-container>
       <b-row class="align-items-center">
         <b-col cols="6">
@@ -144,9 +158,9 @@
                   </b-navbar-nav>
                 </b-collapse>
               </b-navbar>
-              <a href="#">
+              <router-link :to="{ name: 'homeSkin' }">
                 <img :src="logo" class="logo" />
-              </a>
+              </router-link>
             </div>
             <div class="header-search">
               <b-nav-form>
@@ -350,6 +364,8 @@ export default {
       icon_alert_01: icon_alert_01,
       icon_alert_02: icon_alert_02,
       icon_alert_03: icon_alert_03,
+      scTimer: 0,
+      scY: 0,
       isHover: false,
     };
   },
@@ -370,10 +386,59 @@ export default {
     alertOnLeave() {
       this.$refs.alert_dropdown.visible = false;
     },
+    handleScroll: function () {
+      if (this.scTimer) return;
+      this.scTimer = setTimeout(() => {
+        this.scY = window.scrollY;
+        clearTimeout(this.scTimer);
+        this.scTimer = 0;
+      }, 100);
+    },
+    toTop: function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
   },
 };
 </script>
 <style>
+.fake-col {
+  position: fixed;
+  left: 50%;
+  bottom: 210px;
+  transform: translateX(-50%);
+  height: 52px;
+  opacity: 0;
+}
+.floating-btn a {
+  position: relative;
+  left: calc(100% + 10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 100%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  z-index: 99;
+  opacity: 0;
+  transition: all ease 0.35s;
+}
+.floating-btn a:hover {
+  cursor: pointer;
+}
+.fake-col.show,
+.fake-col.show .floating-btn a {
+  opacity: 1;
+}
+.floating-btn.show a:hover {
+  transform: scale(1.1);
+}
 .ex-header {
   padding: 40px 0 30px 0;
   border-bottom: 1px solid #d9d9d9;
@@ -395,6 +460,7 @@ export default {
 .header-col-right {
   display: flex;
   justify-content: end;
+  color: #6e3cbc;
 }
 .ex-header .navbar {
   position: relative;
