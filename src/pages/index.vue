@@ -286,6 +286,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -306,6 +312,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -326,6 +338,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -346,6 +364,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -366,6 +390,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -386,6 +416,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -415,6 +451,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -435,6 +477,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -455,6 +503,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -475,6 +529,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -495,6 +555,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -515,6 +581,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -544,6 +616,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -564,6 +642,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -584,6 +668,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -604,6 +694,12 @@
                 <div class="info-detail">
                   <h3>₩ 25,000</h3>
                   <ul>
+                    <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                    />
                     <li>5.0</li>
                     <li>24개 후기</li>
                   </ul>
@@ -1132,6 +1228,7 @@ export default {
   margin-bottom: 50px;
 }
 .vue-slick-item {
+  display: block;
   height: 240px;
   border-radius: 12px;
 }

@@ -40,6 +40,9 @@ import envelope from "@/components/icons/envelope.vue";
 import playFill from "@/components/icons/play-fill.vue";
 import stopFill from "@/components/icons/stop-fill.vue";
 import floatTop from "@/components/icons/float-top.vue";
+import announcement from "@/components/icons/prod-announcement.vue";
+import handBest from "@/components/icons/hand-best.vue";
+import star from "@/components/icons/star.vue";
 
 export default {
   name: "iconSlot",
@@ -80,6 +83,9 @@ export default {
     playFill,
     stopFill,
     floatTop,
+    announcement,
+    handBest,
+    star,
   },
   computed: {
     getViewBoxSize() {
@@ -156,6 +162,12 @@ export default {
           return "stopFill";
         case "floatTop":
           return "floatTop";
+        case "announcement":
+          return "announcement";
+        case "handBest":
+          return "handBest";
+        case "star":
+          return "star";
         default:
           return "chvronRight";
       }

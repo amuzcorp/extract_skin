@@ -14,6 +14,7 @@ import Footer from "@/components/footer.vue";
 export default {
   name: "App",
   components: { Header, Footer },
+  mounted() {},
 };
 </script>
 
@@ -67,6 +68,9 @@ export default {
 .ml-5 {
   margin-left: 5px;
 }
+.mb-10 {
+  margin-bottom: 10px !important;
+}
 .mb-15 {
   margin-bottom: 15px !important;
 }
@@ -91,5 +95,20 @@ export default {
   color: #333;
   font-size: 1.3rem;
   font-weight: 500;
+}
+.def-btn {
+  background-color: #fff;
+  color: #202427;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  transition: all ease 0.35s;
+}
+.def-btn:hover {
+  border-color: #6e3cbc;
+}
+.box-shadow {
+  box-shadow: 1px 2px 10px rgba(119, 119, 119, 0.1);
 }
 </style>
