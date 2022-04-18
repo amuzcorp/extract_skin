@@ -327,7 +327,11 @@
                       />
                       고객센터</b-dropdown-item
                     >
-                    <b-dropdown-item href="#" class="sub-item">
+                    <b-dropdown-item
+                      href="#"
+                      class="sub-item"
+                      v-b-modal.logout-modal
+                    >
                       <icon-slot
                         :iconName="'logout'"
                         :svgHeight="20"
@@ -344,6 +348,14 @@
         </b-col>
       </b-row>
     </b-container>
+
+    <b-modal id="logout-modal" ref="logout-modal" hide-footer hide-header>
+      <h2>엑기스에서 로그아웃 하려고 합니다.<br />로그아웃하시겠습니까?</h2>
+      <div class="logout-modal-footer">
+        <a href="#" @click="hideModal" class="def-btn-off def-btn">취소</a>
+        <a href="#" class="def-btn-on def-btn">로그아웃</a>
+      </div>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -385,6 +397,9 @@ export default {
     },
     alertOnLeave() {
       this.$refs.alert_dropdown.visible = false;
+    },
+    hideModal() {
+      this.$refs["logout-modal"].hide();
     },
     handleScroll: function () {
       if (this.scTimer) return;
@@ -790,5 +805,41 @@ export default {
 }
 .header-btn-area a.user-nav .dropdown-menu li a.active .sub-item-icon path {
   fill: #6e3cbc;
+}
+
+#logout-modal .modal-body {
+  padding: 34px 43px;
+  text-align: center;
+}
+#logout-modal h2 {
+  margin-bottom: 23px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+#logout-modal p {
+  margin-bottom: 26px;
+  color: #a3a3a3;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.logout-modal-footer {
+  display: flex;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.logout-modal-footer a {
+  width: 100%;
+  flex-grow: 1;
+  min-width: unset;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+#logout-modal .modal-content {
+  border-radius: 12px;
+}
+#logout-modal .modal-dialog {
+  width: 400px;
+  margin-top: 20%;
 }
 </style>

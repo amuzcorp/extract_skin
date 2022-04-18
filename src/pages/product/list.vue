@@ -7,8 +7,8 @@
         </div>
 
         <div class="prod-cate-items">
-          <h2>Product List</h2>
-          <router-link :to="{ name: 'productView' }"> View </router-link>
+          <!-- <h2>Product List</h2>
+          <router-link :to="{ name: 'productView' }"> View </router-link> -->
           <!-- ad -->
           <div class="prod-ad">
             <h2>원하는 상품이 없을땐, <b>삽니다 공고</b>를 올려보세요!</h2>

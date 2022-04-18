@@ -87,6 +87,9 @@ export default {
     max-width: 1280px;
   }
 }
+.ex-container .form-control:focus,
+.ex-container .btn-check:focus + .ex-container .btn-secondary,
+.ex-container .btn-secondary:focus,
 .ex-container .form-control:focus {
   border-color: #6e3cbc;
   box-shadow: 0 0 0 0.25rem rgb(110, 60, 188, 0.25);
@@ -110,5 +113,37 @@ export default {
 }
 .box-shadow {
   box-shadow: 1px 2px 10px rgba(119, 119, 119, 0.1);
+}
+.def-btn-off {
+  display: inline-block;
+  min-width: 152px;
+  padding: 9px 30px;
+  background-color: #fff;
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: unset;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  text-align: center;
+}
+.def-btn-off:hover {
+  color: #333;
+}
+.def-btn-on {
+  display: inline-block;
+  min-width: 152px;
+  padding: 9px 30px;
+  background-color: #300474;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: unset;
+  border: 1px solid #300474;
+  border-radius: 5px;
+  text-align: center;
+}
+.def-btn-on:hover {
+  color: #fff;
 }
 </style>

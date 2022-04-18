@@ -23,6 +23,11 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/cert",
+    name: "cert",
+    component: () => import("./pages/pay/certification"),
+  },
 ];
 
 export default routes;
