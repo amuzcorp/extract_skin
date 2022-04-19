@@ -478,7 +478,12 @@
                         </div>
                         <div
                           class="img"
-                          :style="'background-image: url(' + item.thumb + ')'"
+                          v-bind:style="{
+                            backgroundImage:
+                              'url(' +
+                              require(`@/assets/images/${item.thumb}.png`) +
+                              ')',
+                          }"
                         ></div>
                       </div>
                       <div class="vue-slick-info">
@@ -653,7 +658,6 @@ export default {
   color: #7f63f4;
   background-color: #f1eefd;
 }
-/*  */
 .prod-inner {
   display: flex;
   align-items: start;

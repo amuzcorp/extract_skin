@@ -28,6 +28,11 @@ const routes = [
     name: "cert",
     component: () => import("./pages/pay/certification"),
   },
+  {
+    path: "/payList",
+    name: "payList",
+    component: () => import("./pages/pay/list"),
+  },
 ];
 
 export default routes;

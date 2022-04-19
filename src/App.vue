@@ -68,6 +68,9 @@ export default {
 .ml-5 {
   margin-left: 5px;
 }
+.mb-0 {
+  margin-bottom: 0 !important;
+}
 .mb-10 {
   margin-bottom: 10px !important;
 }

@@ -87,29 +87,48 @@
             buttons
           ></b-form-radio-group>
         </b-form-group>
+
+        <div class="check-list-group">
+          <a
+            class="allCheck"
+            @click="allCheck"
+            :class="{ all: isAll, all: checkSelected.length > 3 }"
+            ><span></span>휴대전화 인증 전체 동의</a
+          >
+          <b-form-group v-slot="{ certCheckList }">
+            <b-form-checkbox-group
+              id="cert-agree-group"
+              v-model="checkSelected"
+              :options="checkList"
+              :aria-describedby="certCheckList"
+              name="cert-agree"
+            ></b-form-checkbox-group>
+          </b-form-group>
+        </div>
+
+        <div class="cert-request-input">
+          <b-form-input
+            type="text"
+            placeholder="휴대전화번호-없이입력"
+            v-model="phoneNum"
+          ></b-form-input>
+          <b-button class="request-btn">인증요청</b-button>
+        </div>
+        {{ phoneNum }}
       </div>
       <div class="cert-modal-footer">
         <a href="#" @click="hideModal" class="def-btn-off def-btn">취소</a>
-        <a href="#" class="def-btn-on def-btn">확인</a>
+        <router-link
+          :to="{
+            name: 'payList',
+          }"
+          class="def-btn-on def-btn"
+        >
+          확인
+        </router-link>
       </div>
     </b-modal>
-
-    <div class="txt-box">
-      <ul>
-        <li class="all-btn">휴대전화 인증 전체 동의</li>
-      </ul>
-    </div>
   </div>
-
-  <!-- <div>
-    <a @click="$router.go(-1)" ref="back_link">
-      <h2>뒤로가기</h2>
-    </a>
-    <h2>Product View</h2>
-  </div> -->
-  <!-- <b-row class="align-items-center">
-            <b-col cols="6"></b-col>
-          </b-row>  -->
 </template>
 <script>
 import cert from "@/assets/images/cert_01.png";
@@ -121,9 +140,11 @@ export default {
     return {
       cert: cert,
       phone: phone,
+      isAll: false,
       name: "",
       firstRRN: "",
       secondRRN: "",
+      phoneNum: "",
       selected: "skt",
       options: [
         { text: "SKT", value: "skt" },
@@ -131,11 +152,29 @@ export default {
         { text: "LGU+", value: "lgu" },
         { text: "알뜰폰", value: "ex" },
       ],
+      checkSelected: [],
+      checkList: [
+        { text: "휴대전화 인증 서비스 이용약관", value: "phone" },
+        { text: "고유식별정보 처리 동의", value: "unique" },
+        { text: "통신사 이용약관 동의", value: "agency" },
+        { text: "개인정보 수집/이용동의", value: "privacy" },
+      ],
     };
   },
   methods: {
     hideModal() {
       this.$refs["cert-modal"].hide();
+    },
+    allCheck() {
+      if (this.checkSelected.length > 3) {
+        this.checkSelected = [];
+      } else {
+        this.checkSelected = [];
+        for (var i = 0; i < this.checkList.length; i++) {
+          this.checkSelected.push(this.checkList[i].value);
+        }
+      }
+      this.isAll = !this.isAll;
     },
   },
 };
@@ -255,6 +294,7 @@ export default {
   min-width: unset;
   margin-left: 5px;
   margin-right: 5px;
+  padding: 12px 0;
 }
 #cert-modal .modal-content {
   text-align: left;
@@ -262,7 +302,7 @@ export default {
 }
 #cert-modal .modal-dialog {
   width: 466px;
-  margin-top: 20%;
+  margin-top: 14%;
 }
 .cert-modal-body input {
   margin-bottom: 10px;
@@ -318,9 +358,110 @@ export default {
 .phone-radio-group #phone-btns label input {
   display: none;
 }
-/*
-==================================================================================
-==================================================================================
-==================================================================================
- */
+.check-list-group .allCheck {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 0 25px 0;
+  padding: 0 0 11px 14px;
+  color: #707070;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: left;
+  border-bottom: 1px solid #707070;
+  text-decoration: unset;
+}
+.check-list-group .allCheck span {
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  background: center / contain no-repeat
+    url("@/assets/images/icon_check_off.png");
+}
+.check-list-group .allCheck.all span {
+  background: center / contain no-repeat
+    url("@/assets/images/icon_check_on.png");
+}
+.check-list-group .allCheck:hover,
+#cert-agree-group label:hover {
+  cursor: pointer;
+}
+#cert-agree-group {
+  padding: 0 0 35px 14px;
+}
+#cert-agree-group .custom-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  color: #707070;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: left;
+}
+#cert-agree-group .custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+#cert-agree-group label {
+  position: relative;
+}
+#cert-agree-group label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: center / contain no-repeat
+    url("@/assets/images/icon_check_off.png");
+  border-radius: 100%;
+  cursor: pointer;
+}
+#cert-agree-group input[type="checkbox"]:checked + label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #300474;
+  width: 15px;
+  height: 15px;
+  background: center / contain no-repeat
+    url("@/assets/images/icon_check_on.png");
+  border-radius: 100%;
+}
+#cert-agree-group .custom-control-label span {
+  margin-left: 10px;
+}
+#cert-agree-group .custom-control-label span::before {
+  content: "(필수)";
+  margin: 0 5px 0 10px;
+  color: #e35353;
+}
+.cert-request-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.cert-request-input input {
+  margin-bottom: 0 !important;
+  height: 47px;
+}
+.cert-request-input .request-btn {
+  width: 92px;
+  min-width: 92px;
+  height: 47px;
+  margin-left: -5px;
+  padding: 0;
+  background-color: #989898;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 47px;
+  border-radius: 4px;
+  border: 0;
+}
 </style>
