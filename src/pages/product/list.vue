@@ -39,7 +39,7 @@
             <b-row>
               <b-col cols="6">
                 <div class="ann-inner-box">
-                  <router-link :to="{ name: 'productView' }">
+                  <router-link :to="{ name: 'productShow' }">
                     <h2>두산 합격 사소서 삽니다~!!! 합격하신분 부탁드려요.</h2>
                     <h3>₩ 25,000</h3>
                   </router-link>

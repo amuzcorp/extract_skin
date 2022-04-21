@@ -91,6 +91,7 @@
     </div>
     <div class="board-view-footer">
       <ul>
+        <!-- 내 댓글 -->
         <li>
           <span class="user-info">
             <ul>
@@ -113,6 +114,8 @@
               /></svg
           ></a>
         </li>
+
+        <!-- 비공개 -->
         <li>
           <span class="user-info lock">
             <ul>
