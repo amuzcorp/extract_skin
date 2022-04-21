@@ -98,7 +98,7 @@
   </div>
 </template>
 <script>
-import VerticalCategory from "@/components/category/vertical_category.vue";
+import VerticalCategory from "@/components/category/vertical-category.vue";
 import ProdWeekBest from "@/components/product/product-week-best.vue";
 import iconSlot from "@/components/icon-slot.vue";
 import prodList from "@/api/product.json";

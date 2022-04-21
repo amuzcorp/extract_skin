@@ -736,7 +736,7 @@ import check from "@/assets/images/icon_check.png";
 import StarRating from "vue-star-rating";
 
 export default {
-  name: "productView",
+  name: "productShow",
   components: {
     VueSlickCarousel,
     StarRating,

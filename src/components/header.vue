@@ -187,9 +187,9 @@
         </b-col>
         <b-col cols="6">
           <div class="header-col-right">
-            <a href="#" class="header-ad">
+            <router-link :to="{ name: 'purchaseList' }" class="header-ad">
               내가 원하는 상품이 없을땐, 공고를 올려보세요!
-            </a>
+            </router-link>
             <div class="header-col">
               <div class="header-btn-area">
                 <a href="#" class="product pr-0">상품 등록</a>

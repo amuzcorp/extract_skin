@@ -18,8 +18,8 @@ const routes = [
       },
       {
         path: "view/:productName?",
-        name: "productView",
-        component: () => import("./pages/product/view"),
+        name: "productShow",
+        component: () => import("./pages/product/show"),
       },
     ],
   },
@@ -29,19 +29,19 @@ const routes = [
     component: () => import("./pages/pay/index"),
     children: [
       {
-        path: "/cert",
+        path: "cert",
         name: "cert",
         component: () => import("./pages/pay/certification"),
       },
       {
-        path: "/payList",
+        path: "payList",
         name: "payList",
         component: () => import("./pages/pay/list"),
       },
       {
-        path: "/payCom",
+        path: "payCom",
         name: "payCom",
-        component: () => import("./pages/pay/view"),
+        component: () => import("./pages/pay/show"),
       },
     ],
   },
@@ -68,19 +68,19 @@ const routes = [
     ],
   },
   {
-    path: "/purchaseNotice",
-    name: "purchaseNotice",
-    component: () => import("./pages/purchaseNotice/index"),
+    path: "/purchase",
+    name: "purchaseIndex",
+    component: () => import("./pages/purchase/index"),
     children: [
       {
-        path: "/purchaseNoticeList",
-        name: "purchaseNoticeList",
-        component: () => import("./pages/purchaseNotice/list"),
+        path: "list",
+        name: "purchaseList",
+        component: () => import("./pages/purchase/list"),
       },
       {
-        path: "/purchaseNoticeView",
-        name: "purchaseNoticeView",
-        component: () => import("./pages/purchaseNotice/view"),
+        path: "show",
+        name: "purchaseShow",
+        component: () => import("./pages/purchase/show"),
       },
     ],
   },

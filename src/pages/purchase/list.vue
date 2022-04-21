@@ -1,9 +1,9 @@
 <template>
-  <div>notice view</div>
+  <div>purchaseList</div>
 </template>
 <script>
 export default {
-  name: "purchaseNoticeView",
+  name: "purchaseList",
 };
 </script>
 <style></style>

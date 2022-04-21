@@ -80,23 +80,37 @@
         </div>
       </div>
 
-      <SearchBoard />
+      <PurchaseBoard :boardList="this.purchaseList" />
     </b-container>
   </div>
 </template>
 <script>
 import prodList from "@/api/product.json";
-import SearchBoard from "@/components/board/search/list.vue";
+import boardList from "@/api/board.json";
+import PurchaseBoard from "@/components/board/purchaseBoard/list.vue";
 
 export default {
   name: "list-notice-skin",
   data() {
     return {
       prodList,
+      boardList,
+      purchaseList: [],
     };
   },
-  components: { SearchBoard },
-  mounted() {},
+  components: { PurchaseBoard },
+  methods: {
+    getBoardList() {
+      for (var i = 0; i < this.boardList.length; i++) {
+        if (this.boardList[i]["type"] == "purchase") {
+          this.purchaseList.push(this.boardList[i]);
+        }
+      }
+    },
+  },
+  mounted() {
+    this.getBoardList();
+  },
 };
 </script>
 <style>

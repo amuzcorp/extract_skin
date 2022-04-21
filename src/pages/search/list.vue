@@ -7,7 +7,7 @@
             <router-link :to="{ name: 'searchList' }">
               <div class="search-result-inner active">
                 <div class="img"></div>
-                <a href="" class="txt-box">
+                <a class="txt-box">
                   <div class="text-box-inner text-center">
                     <span>상품검색</span> 결과로 볼게요!<br />
                     <b>127</b>건
@@ -20,7 +20,7 @@
             <router-link :to="{ name: 'searchNoticeList' }">
               <div class="search-result-inner search-result-inner-buy">
                 <div class="img"></div>
-                <a href="" class="txt-box">
+                <a class="txt-box">
                   <div class="text-box-inner text-center">
                     <span>삽니다공고</span> 결과로 볼게요!<br />
                     <b>54</b>건

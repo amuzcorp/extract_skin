@@ -21,16 +21,30 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, i) in this.sampleList" :key="i">
+        <tr v-for="(item, i) in this.boardList" :key="i">
           <td>
             <span class="td-shadow"></span>
             <div class="td-inner">{{ item.cate }}</div>
           </td>
           <td class="tit">
             <div class="td-inner">
-              <router-link :to="{ nmae: 'purchaseNoticeView' }">{{
-                item.title
-              }}</router-link>
+              <router-link :to="{ name: 'purchaseShow' }">
+                {{ item.title }}
+                <svg
+                  v-if="item.img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-image"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                  <path
+                    d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"
+                  />
+                </svg>
+              </router-link>
             </div>
           </td>
           <td>
@@ -72,82 +86,12 @@ import pagePrev from "@/assets/images/chervon_prev.png";
 
 export default {
   name: "search-list-skin",
+  props: {
+    boardList: { require: false },
+  },
   data() {
     return {
-      sampleList: [
-        {
-          cate: "화보",
-          title: "에곤쉴레 초화상 삽니다.",
-          img: false,
-          price: "25,000",
-          writer: "cwalwall",
-          date: "2021-01-01",
-          offer: "5",
-        },
-        {
-          cate: "디자인",
-          title: "산세리프 폰트 모음집 삽니다.",
-          img: false,
-          price: "25,000",
-          writer: "cwalwall",
-          date: "2021-01-01",
-          offer: "7",
-        },
-        {
-          cate: "PDF 책",
-          title: "회사소개서 양식 삽니다.",
-          img: false,
-          price: "25,000",
-          writer: "cwalwall",
-          date: "2021-01-01",
-          offer: "2",
-        },
-        {
-          cate: "보고서",
-          title: "회계양식 모음집 사요 활용가능한걸로요!",
-          img: false,
-          price: "25,000",
-          writer: "cwalwall",
-          date: "2021-01-01",
-          offer: "12",
-        },
-        {
-          cate: "프로그램",
-          title: "플루터 코드모음집 삽니다. 연락주세요.",
-          img: true,
-          price: "25,000",
-          writer: "cwalwall",
-          date: "2021-01-01",
-          offer: "17",
-        },
-        {
-          cate: "폰트",
-          title: "세리프 폰트 삽니다.",
-          img: false,
-          price: "25,000",
-          writer: "cwalwall",
-          date: "2021-01-01",
-          offer: "4",
-        },
-        {
-          cate: "문제집/족보",
-          title: "2022 산업기능사 문제집 사봐요.",
-          img: false,
-          price: "25,000",
-          writer: "cwalwall",
-          date: "2021-01-01",
-          offer: "2",
-        },
-        {
-          cate: "화보",
-          title: "홍길동 화보 전집 사봅니다.",
-          img: false,
-          price: "25,000",
-          writer: "cwalwall",
-          date: "2021-01-01",
-          offer: "9",
-        },
-      ],
+      sampleList: [],
       tableSelected: null,
       tableOptions: [
         { value: null, text: "최신순" },
@@ -232,8 +176,14 @@ export default {
 .def-board tbody tr:hover .td-shadow {
   border-color: #6e3cbc;
 }
+.def-board tbody tr:hover td {
+  color: #6e3cbc;
+}
 .def-board tbody tr td .td-inner {
   padding: 10px 0;
+}
+.def-board tbody tr td .td-inner svg {
+  margin: 0 0 3px 3px;
 }
 .def-board tbody tr td:first-child .td-inner,
 .def-board thead tr th:first-child {

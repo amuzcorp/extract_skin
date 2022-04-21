@@ -156,7 +156,7 @@
 </template>
 <script>
 export default {
-  name: "pay-view-skin",
+  name: "pay-show-skin",
 };
 </script>
 <style>
