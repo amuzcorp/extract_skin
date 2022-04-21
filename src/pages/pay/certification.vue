@@ -114,7 +114,6 @@
           ></b-form-input>
           <b-button class="request-btn">인증요청</b-button>
         </div>
-        {{ phoneNum }}
       </div>
       <div class="cert-modal-footer">
         <a href="#" @click="hideModal" class="def-btn-off def-btn">취소</a>

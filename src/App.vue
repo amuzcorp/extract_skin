@@ -5,6 +5,15 @@
     <router-view></router-view>
     <Footer />
   </div>
+  <!-- <div>
+    <a @click="$router.go(-1)" ref="back_link">
+      <h2>뒤로가기</h2>
+    </a>
+    <h2>Product View</h2>
+  </div> -->
+  <!-- <b-row class="align-items-center">
+            <b-col cols="6"></b-col>
+          </b-row>  -->
 </template>
 
 <script>
@@ -14,6 +23,9 @@ import Footer from "@/components/footer.vue";
 export default {
   name: "App",
   components: { Header, Footer },
+  data() {
+    return {};
+  },
   mounted() {},
 };
 </script>
@@ -53,8 +65,9 @@ export default {
 .ex-container a {
   text-decoration: unset;
 }
-.ex-container a:hover {
+a:hover {
   color: inherit;
+  cursor: pointer;
 }
 .ex-container img {
   width: 100%;
@@ -148,5 +161,8 @@ export default {
 }
 .def-btn-on:hover {
   color: #fff;
+}
+.vertical-top {
+  vertical-align: top;
 }
 </style>

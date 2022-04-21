@@ -109,6 +109,7 @@
                     name: 'productList',
                     params: { categoryId: 'pdfBook' },
                   }"
+                  :bestProdList="this.bestProdList"
                 >
                   <img :src="pdfBook" />
                   <span>PDF 책</span>
@@ -268,1068 +269,26 @@
       </div>
 
       <!-- 주간 베스트 상품 -->
-      <div class="week-best-wrap">
-        <h2 class="contents-tit mb-15">엑기스 주간 <b>BEST 10</b></h2>
-        <div class="vue-slick-track">
-          <VueSlickCarousel v-bind="bestSettings">
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_01 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_02 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_03 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_04 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_05 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_05 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-          </VueSlickCarousel>
-        </div>
-      </div>
+      <ProdWeekBest
+        :title="'엑기스 주간'"
+        :titleBold="' BEST 10'"
+        :itemList="this.bestProdList"
+        :getSlideSettings="'best'"
+      />
 
       <!-- 엠디 탑 상품 -->
-      <div class="week-best-wrap md-top-wrap">
-        <h2 class="contents-tit mb-15">MD PICK Top 10</h2>
-        <div class="vue-slick-track">
-          <VueSlickCarousel v-bind="bestSettings">
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_01 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_02 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_03 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_04 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_05 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_05 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-          </VueSlickCarousel>
-        </div>
-      </div>
+      <ProdWeekBest
+        :title="'MD PICK Top 10'"
+        :itemList="this.mdProdList"
+        :getSlideSettings="'best'"
+      />
 
       <!-- 인기 무료 상품 -->
-      <div class="week-best-wrap pop-free-wrap">
-        <h2 class="contents-tit mb-15">인기 무료 상품</h2>
-        <div class="vue-slick-track">
-          <VueSlickCarousel v-bind="freeSettings">
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_06 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_07 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_08 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_09 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div class="vue-slick-img">
-                <div class="hover-box">
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                      />
-                    </svg>
-                    찜하기
-                  </a>
-                  <a href="">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
-                      <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
-                    </svg>
-                    링크복사
-                  </a>
-                </div>
-                <div
-                  class="img"
-                  :style="'background-image: url(' + pd_09 + ')'"
-                ></div>
-              </div>
-              <div class="vue-slick-info">
-                <h2>
-                  19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.
-                </h2>
-                <div class="info-detail">
-                  <h3>₩ 25,000</h3>
-                  <ul>
-                    <icon-slot
-                      :iconName="'star'"
-                      :svgHeight="16"
-                      :svgWidth="16"
-                      :iconColor="'#894DE6'"
-                    />
-                    <li>5.0</li>
-                    <li>24개 후기</li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-          </VueSlickCarousel>
-        </div>
-      </div>
+      <ProdWeekBest
+        :title="'인기 무료 상품'"
+        :itemList="this.freeProdList"
+        :getSlideSettings="'free'"
+      />
 
       <!-- 광고 배너 -->
       <div class="main-ad-wrap">
@@ -1387,59 +346,22 @@
       <div class="week-best-wrap hot-category-wrap">
         <h2 class="contents-tit mb-15">핫한 카테고리</h2>
         <div class="vue-slick-track">
-          <VueSlickCarousel v-bind="bestSettings">
-            <a href="#" class="vue-slick-item">
+          <VueSlickCarousel v-bind="bestSettings" v-if="hotProdList.length > 0">
+            <a
+              href="#"
+              class="vue-slick-item"
+              v-for="(item, i) in this.hotProdList"
+              :key="i"
+            >
               <div
                 class="vue-slick-img"
-                :style="'background-image: url(' + pd_10 + ')'"
+                v-bind:style="{
+                  backgroundImage:
+                    'url(' + require(`@/assets/images/${item.thumb}.png`) + ')',
+                }"
               ></div>
               <div class="vue-slick-info">
-                <h2>문제집/족보</h2>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div
-                class="vue-slick-img"
-                :style="'background-image: url(' + pd_11 + ')'"
-              ></div>
-              <div class="vue-slick-info">
-                <h2>디지털문구</h2>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div
-                class="vue-slick-img"
-                :style="'background-image: url(' + pd_12 + ')'"
-              ></div>
-              <div class="vue-slick-info">
-                <h2>PDF</h2>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div
-                class="vue-slick-img"
-                :style="'background-image: url(' + pd_13 + ')'"
-              ></div>
-              <div class="vue-slick-info">
-                <h2>디자인Asset</h2>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div
-                class="vue-slick-img"
-                :style="'background-image: url(' + pd_14 + ')'"
-              ></div>
-              <div class="vue-slick-info">
-                <h2>폰트</h2>
-              </div>
-            </a>
-            <a href="#" class="vue-slick-item">
-              <div
-                class="vue-slick-img"
-                :style="'background-image: url(' + pd_14 + ')'"
-              ></div>
-              <div class="vue-slick-info">
-                <h2>폰트</h2>
+                <h2>{{ item.title }}</h2>
               </div>
             </a>
           </VueSlickCarousel>
@@ -1497,6 +419,8 @@
   </b-container>
 </template>
 <script>
+import cateList from "@/api/productCategory.json";
+import prodList from "@/api/product.json";
 import visualSlidBg from "@/assets/images/m_s_01.png";
 import adSlideBg from "@/assets/images/ad_01.png";
 import adInfoBg01 from "@/assets/images/ad_02.png";
@@ -1515,33 +439,26 @@ import font from "@/assets/images/img_font.png";
 import program from "@/assets/images/img_program.png";
 import design from "@/assets/images/img_design.png";
 import video from "@/assets/images/img_video.png";
-// 제품
-import pd_01 from "@/assets/images/p_01.png";
-import pd_02 from "@/assets/images/p_02.png";
-import pd_03 from "@/assets/images/p_03.png";
-import pd_04 from "@/assets/images/p_04.png";
-import pd_05 from "@/assets/images/p_05.png";
-import pd_06 from "@/assets/images/p_06.png";
-import pd_07 from "@/assets/images/p_07.png";
-import pd_08 from "@/assets/images/p_08.png";
-import pd_09 from "@/assets/images/p_09.png";
-import pd_10 from "@/assets/images/p_10.png";
-import pd_11 from "@/assets/images/p_11.png";
-import pd_12 from "@/assets/images/p_12.png";
-import pd_13 from "@/assets/images/p_13.png";
-import pd_14 from "@/assets/images/p_14.png";
 
 import iconSlot from "@/components/icon-slot.vue";
 
 import VueSlickCarousel from "vue-slick-carousel";
+import ProdWeekBest from "@/components/product/product-week-best.vue";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
   name: "homeSkin",
-  components: { iconSlot, VueSlickCarousel },
+  props: {},
+  components: {
+    iconSlot,
+    VueSlickCarousel,
+    ProdWeekBest,
+  },
   data() {
     return {
+      cateList,
+      prodList,
       visualSlidBg: visualSlidBg,
       adSlideBg: adSlideBg,
       adInfoBg01: adInfoBg01,
@@ -1559,34 +476,12 @@ export default {
       program: program,
       design: design,
       video: video,
-      pd_01: pd_01,
-      pd_02: pd_02,
-      pd_03: pd_03,
-      pd_04: pd_04,
-      pd_05: pd_05,
-      pd_06: pd_06,
-      pd_07: pd_07,
-      pd_08: pd_08,
-      pd_09: pd_09,
-      pd_10: pd_10,
-      pd_11: pd_11,
-      pd_12: pd_12,
-      pd_13: pd_13,
-      pd_14: pd_14,
       isInterval: 0,
       bestSettings: {
         arrows: true,
         dots: false,
         infinite: true,
         slidesToShow: 5,
-        slidesToScroll: 1,
-        adaptiveHeight: true,
-      },
-      freeSettings: {
-        arrows: true,
-        dots: false,
-        infinite: true,
-        slidesToShow: 4,
         slidesToScroll: 1,
         adaptiveHeight: true,
       },
@@ -1598,6 +493,11 @@ export default {
         slidesToScroll: 1,
         adaptiveHeight: true,
       },
+
+      bestProdList: [],
+      mdProdList: [],
+      freeProdList: [],
+      hotProdList: [],
     };
   },
   methods: {
@@ -1608,11 +508,32 @@ export default {
         this.isInterval = 0;
       }
     },
+    bestProd() {
+      for (var i = 0; i < this.prodList.length; i++) {
+        if (this.prodList[i]["best"] == true) {
+          this.bestProdList.push(this.prodList[i]);
+        }
+        if (this.prodList[i]["mdFick"] == true) {
+          this.mdProdList.push(this.prodList[i]);
+        }
+        if (this.prodList[i]["popFree"] == true) {
+          this.freeProdList.push(this.prodList[i]);
+        }
+        if (this.prodList[i]["hot"] == true) {
+          this.hotProdList.push(this.prodList[i]);
+        }
+      }
+    },
+  },
+  mounted() {
+    this.bestProd();
   },
 };
 </script>
 <style>
-/*  */
+.vue-slick-item:hover .hover-box {
+  opacity: 1;
+}
 .main-visual {
   position: relative;
   margin-bottom: 66px;
@@ -1845,17 +766,7 @@ export default {
 .main-ad-wrap {
   margin-bottom: 81px;
 }
-.hot-category-wrap {
-  margin-bottom: 50px;
-}
-.vue-slick-item {
-  display: block;
-  height: 240px;
-  border-radius: 12px;
-}
-.pop-free-wrap .vue-slick-item {
-  height: 290px;
-}
+
 .main-ad-wrap .vue-slick-item {
   position: relative;
   height: 285px;
@@ -1955,17 +866,12 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   z-index: -1;
 }
-.vue-slick-item:hover .img {
-  transform: scale(1.1);
-}
-.hot-category-wrap .vue-slick-info h2 {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 500;
-  text-align: center;
-}
+
 .vue-slick-info h2 {
   margin-bottom: 10px;
   color: #333;
@@ -2002,39 +908,11 @@ export default {
   width: 100%;
   z-index: 2;
 }
-.vue-slick-info .info-detail,
-.vue-slick-info .info-detail ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.vue-slick-info h3 {
-  color: #333;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-.vue-slick-info .info-detail ul li {
-  position: relative;
-  padding: 0 5px;
-  color: #6a707e;
-  font-size: 0.9rem;
-  font-weight: 400;
-}
-.vue-slick-info .info-detail ul li::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 60%;
-  background-color: #6a707e;
-}
-.vue-slick-info .info-detail ul li:last-child {
-  padding-right: 0;
-}
-.vue-slick-info .info-detail ul li:last-child::after {
-  display: none;
+.hot-category-wrap .vue-slick-info h2 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
 }
 .main-info-wrap {
   margin-bottom: 95px;

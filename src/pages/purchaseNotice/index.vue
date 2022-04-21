@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "productIndex",
+  name: "purchase-noticeIndex",
   props: {},
   data() {
     return {};

@@ -636,6 +636,10 @@ export default {
 .header-btn-area a:first-child {
   margin-left: 0;
 }
+.dropdown-item.active,
+.dropdown-item:active {
+  background: unset;
+}
 .header-btn-area a.alert-nav {
   width: 65px;
 }

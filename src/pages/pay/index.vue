@@ -3,8 +3,7 @@
 </template>
 <script>
 export default {
-  name: "productIndex",
-  props: {},
+  name: "payIndex",
   data() {
     return {};
   },

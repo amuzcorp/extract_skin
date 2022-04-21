@@ -18,10 +18,23 @@
               <img :src="prodView_01" class="thumb" />
             </td>
             <td>
-              <span class="tit"
-                >사람,동물,건물 등 직접그린 일러스트 모음집 팝니다.</span
-              >
-              <span class="zip">일러스트 모음집.ai</span>
+              <a href="" class="tit">
+                사람,동물,건물 등 직접그린 일러스트 모음집 팝니다.
+                <span class="zip"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-folder"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"
+                    /></svg
+                  >일러스트 모음집.ai</span
+                >
+              </a>
             </td>
             <td class="text-center">디자인 / 일러스트</td>
             <td class="text-center">25,000원</td>
@@ -84,26 +97,32 @@
                   <b-tab title="신용카드" active>
                     <b-tabs content-class="mt-3">
                       <b-tab title="등록된 결제 카드" active>
-                        <VueSlickCarousel v-bind="cardSettings">
-                          <a
-                            v-for="(card, idx) in cardList"
-                            :key="idx"
-                            class="card-slick-item"
-                            @click="cardSelected(idx)"
-                          >
-                            <template v-if="card.thumb">
-                              <img
-                                :src="
-                                  require(`@/assets/images/${card.thumb}.png`)
-                                "
-                              />
-                            </template>
-                            <template v-else
-                              ><div class="img-non"></div
-                            ></template>
-                            <h2>{{ card.label }}</h2>
-                          </a>
-                        </VueSlickCarousel>
+                        <div class="slider-wrap">
+                          <VueSlickCarousel v-bind="cardSettings">
+                            <a
+                              v-for="(card, idx) in cardList"
+                              :key="idx"
+                              class="card-slick-item"
+                              @click="cardSelected(idx)"
+                            >
+                              <template v-if="card.thumb">
+                                <img
+                                  :src="
+                                    require(`@/assets/images/${card.thumb}.png`)
+                                  "
+                                />
+                                <h2>{{ card.label }}</h2>
+                              </template>
+                              <div v-else v-b-modal.add-card-modal>
+                                <img
+                                  class="img-non"
+                                  src="@/assets/images/card_02.png"
+                                />
+                                <h2 class="img-non">등록된 카드가 없습니다.</h2>
+                              </div>
+                            </a>
+                          </VueSlickCarousel>
+                        </div>
                       </b-tab>
                       <b-tab title="기타 카드"><p>기타 카드</p></b-tab>
                     </b-tabs>
@@ -123,16 +142,47 @@
                 </b-tabs>
               </div>
               <div class="discount-footer">
-                <h2>세금계산서 발행</h2>
-                <b-form-group label="Radios using options" v-slot="{ tax }">
-                  <b-form-radio-group
-                    id="radio-group-2"
-                    v-model="taxSelected"
-                    :options="taxList"
-                    :aria-describedby="tax"
-                    name="radio-options"
-                  ></b-form-radio-group>
-                </b-form-group>
+                <h3>세금계산서 발행</h3>
+                <b-tabs class="pay-select tax-select" content-class="mt-4">
+                  <b-tab title="신청안함"></b-tab>
+                  <b-tab title="세금계산서 발행" active>
+                    <div class="tax-inner">
+                      <b-input-group>
+                        <p class="label">상호명</p>
+                        <b-form-input
+                          type="text"
+                          placeholder="상호명을 입력해주세요."
+                          v-model="taxName"
+                        ></b-form-input>
+                      </b-input-group>
+                      <b-input-group>
+                        <p class="label">사업자 등록번호</p>
+                        <b-form-input
+                          type="text"
+                          placeholder="‘-‘없이 10자리를 입력해주세요."
+                          v-model="taxNum"
+                        ></b-form-input>
+                      </b-input-group>
+                      <b-input-group>
+                        <p class="label">사업자 등록증</p>
+                        <b-form-input
+                          type="text"
+                          placeholder="파일을 선택해주세요."
+                          v-model="taxRegistration"
+                        ></b-form-input>
+                        <b-button class="coupon-btn">파일 선택</b-button>
+                      </b-input-group>
+                      <b-input-group>
+                        <p class="label">이메일</p>
+                        <b-form-input
+                          type="text"
+                          placeholder="이메일주소를 입력해주세요."
+                          v-model="taxMail"
+                        ></b-form-input>
+                      </b-input-group>
+                    </div>
+                  </b-tab>
+                </b-tabs>
               </div>
             </div>
           </b-col>
@@ -177,24 +227,89 @@
                     내용을 확인하였으며, 결제에 동의합니다.
                   </b-form-checkbox>
                 </div>
-                <b-button class="pay-btn">결제하기</b-button>
+
+                <router-link class="pay-btn" :to="{ name: 'payCom' }">
+                  결제하기
+                </router-link>
               </div>
             </div>
           </b-col>
         </b-row>
       </div>
     </b-container>
-  </div>
 
-  <!-- <div>
-    <a @click="$router.go(-1)" ref="back_link">
-      <h2>뒤로가기</h2>
-    </a>
-    <h2>Product View</h2>
-  </div> -->
-  <!-- <b-row class="align-items-center">
-            <b-col cols="6"></b-col>
-          </b-row>  -->
+    <b-modal id="add-card-modal" ref="add-card-modal" hide-footer hide-header>
+      <h2>결제카드 추가 등록</h2>
+      <div class="card-modal-body">
+        <b-form-group v-slot="{ cardOver }">
+          <p class="label">카드선택</p>
+          <b-form-radio-group
+            id="btn-radios-1"
+            v-model="cardOverSelected"
+            :options="cardOverOptions"
+            :aria-describedby="cardOver"
+            name="radios-btn-default"
+            buttons
+          ></b-form-radio-group>
+        </b-form-group>
+
+        <b-form-group v-slot="{ ariaDescribedby }">
+          <p class="label">카드구분</p>
+          <b-form-radio
+            v-model="cardCorpSelected"
+            :aria-describedby="ariaDescribedby"
+            name="some-radios"
+            value="personal"
+            >개인카드</b-form-radio
+          >
+          <b-form-radio
+            v-model="cardCorpSelected"
+            :aria-describedby="ariaDescribedby"
+            name="some-radios"
+            value="corporation"
+            >법인카드</b-form-radio
+          >
+        </b-form-group>
+
+        <b-input-group>
+          <p class="label">카드번호</p>
+          <b-form-input
+            type="text"
+            placeholder="14 - 16 자리"
+            v-model="cardNum"
+          ></b-form-input>
+        </b-input-group>
+        <b-input-group>
+          <p class="label">유효기간</p>
+          <b-form-input
+            type="text"
+            placeholder="MM/YY"
+            v-model="cardPeriod"
+          ></b-form-input>
+        </b-input-group>
+        <b-input-group>
+          <p class="label">생년월일</p>
+          <b-form-input
+            type="text"
+            placeholder="YYMMDD"
+            v-model="cardBirth"
+          ></b-form-input>
+        </b-input-group>
+        <b-input-group>
+          <p class="label">카드 비밀번호</p>
+          <b-form-input
+            type="text"
+            placeholder="숫자 4자리"
+            v-model="cardPas"
+          ></b-form-input>
+        </b-input-group>
+      </div>
+      <div class="card-modal-footer">
+        <a @click="hideModal" class="def-btn-off def-btn">취소</a>
+        <a class="def-btn-on def-btn">등록하기</a>
+      </div>
+    </b-modal>
+  </div>
 </template>
 <script>
 import prodView_01 from "@/assets/images/prod_view_01.png";
@@ -215,6 +330,10 @@ export default {
       isCouponNum: "",
       taxSelected: "",
       isCouponPrice: "",
+      taxName: "",
+      taxNum: "",
+      taxRegistration: "",
+      taxMail: "",
       isCouponTotalPice: "25,000",
       taxList: [
         { text: "신청안함", value: "taxNon" },
@@ -224,113 +343,49 @@ export default {
         arrows: true,
         dots: false,
         infinite: true,
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
-        adaptiveHeight: true,
+        // adaptiveHeight: true,
+        variableWidth: true,
+        centerMode: true,
       },
       cardList: [
         { label: "Any Plus 하나은행 l 신용 (4892)", thumb: "card_01" },
         {
-          label: "Any Plus 하나은행 l 신용 (4892)",
-          thumb: "",
-        },
-        {
-          label: "Any Plus 하나은행 l 신용 (4892)",
+          label: "",
           thumb: "",
         },
       ],
       isCardSelected: "",
+      cardCorpSelected: "personal",
+      cardOverSelected: "domestic",
+      cardOverOptions: [
+        {
+          text: "국내카드",
+          value: "domestic",
+        },
+        {
+          text: "해외카드",
+          value: "overseas",
+        },
+      ],
+      cardNum: "",
+      cardPeriod: "",
+      cardBirth: "",
+      cardPas: "",
     };
   },
   methods: {
     cardSelected(idx) {
       this.isCardSelected = idx;
     },
+    hideModal() {
+      this.$refs["add-card-modal"].hide();
+    },
   },
 };
 </script>
 <style>
-.pay-select .nav-tabs {
-  border: 0;
-}
-.pay-select .nav-tabs li a::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #d5d5d5;
-  border-radius: 100%;
-  cursor: pointer;
-}
-.pay-select .nav-tabs li a.active:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 2.5px;
-  transform: translateY(-50%);
-  width: 10px;
-  height: 10px;
-  background-color: #300474;
-  border-radius: 100%;
-}
-.pay-select .nav-tabs li a.active:before {
-  border-color: #300474;
-}
-.pay-select .nav-tabs li a {
-  position: relative;
-  padding-left: 20px;
-  color: #333333;
-  border: 0;
-}
-.pay-select .nav-tabs li a:hover {
-  color: #333333;
-}
-.pay-select .tab-content .nav-tabs li a {
-  padding: 0 30px 0 0;
-  color: #aaaaaa;
-}
-.pay-select .tab-content .nav-tabs li a.active {
-  font-weight: 500;
-  color: #333;
-}
-.pay-select .tab-content .nav-tabs li a:before {
-  top: 50%;
-  left: auto;
-  right: 15px;
-  transform: translateY(-50%);
-  width: 1.5px;
-  height: 50%;
-  background-color: #333;
-  border: 0;
-  border-radius: 0;
-}
-.pay-select .slick-slider {
-  margin-top: 30px;
-}
-.pay-select .tab-content .nav-tabs li:last-child a:before,
-.pay-select .tab-content .nav-tabs li a:after {
-  display: none;
-}
-.discount-body .card-slick-item img {
-  margin-bottom: 10px;
-  width: 210px;
-}
-.discount-body .card-slick-item h2 {
-  margin: 0;
-  color: #000000;
-  font-size: 0.8rem;
-  font-weight: 400;
-  text-align: center;
-}
-/*
-==================================================================================
-==================================================================================
-==================================================================================
- */
 .pay-list-wrap h2 {
   margin-bottom: 16px;
   color: #333;
@@ -366,6 +421,16 @@ export default {
 }
 .pay-list-wrap table td .zip {
   display: block;
+}
+.pay-list-wrap table td .zip svg {
+  margin-right: 8px;
+}
+.pay-list-wrap table td a {
+  color: inherit;
+  transition: all ease 0.35s;
+}
+.pay-list-wrap table td a:hover {
+  text-decoration: underline;
 }
 .count-wrap {
   margin-bottom: 20px;
@@ -488,6 +553,7 @@ export default {
   color: #e35353;
 }
 .payment-info-footer .pay-btn {
+  display: inline-block;
   width: 100%;
   padding: 15px 0;
   background-color: #300474;
@@ -495,6 +561,7 @@ export default {
   font-size: 1.2rem;
   font-weight: 500;
   border-radius: 6px;
+  text-align: center;
 }
 .discount-body,
 .discount-header {
@@ -539,6 +606,7 @@ export default {
   color: #bebebe;
   font-size: 0.8rem;
 }
+#add-card-modal .input-group input::placeholder,
 .discount-header .input-group input::placeholder {
   color: #bebebe;
   font-size: 0.8rem;
@@ -559,6 +627,10 @@ export default {
   border-radius: 6px !important;
   text-align: center;
 }
+.payment-wrap {
+  margin-bottom: 200px;
+}
+.discount-footer h3,
 .discount-body h3 {
   padding-bottom: 16px;
   margin-bottom: 30px;
@@ -594,5 +666,285 @@ export default {
   color: #300474;
   line-height: 16px;
   border-color: #300474;
+}
+.pay-select .nav-tabs {
+  border: 0;
+}
+.pay-select .nav-tabs li a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #d5d5d5;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.pay-select .nav-tabs li a.active:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 2.5px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #300474;
+  border-radius: 100%;
+}
+.pay-select .nav-tabs li a.active:before {
+  border-color: #300474;
+}
+.pay-select .nav-tabs li a {
+  position: relative;
+  padding-left: 20px;
+  color: #333333;
+  border: 0;
+}
+.pay-select .nav-tabs li a:hover {
+  color: #333333;
+}
+.pay-select .tab-content .nav-tabs li a {
+  padding: 0 30px 0 0;
+  color: #aaaaaa;
+}
+.pay-select .tab-content .nav-tabs li a.active {
+  font-weight: 500;
+  color: #333;
+}
+.pay-select .tab-content .nav-tabs li a:before {
+  top: 50%;
+  left: auto;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 1.5px;
+  height: 50%;
+  background-color: #333;
+  border: 0;
+  border-radius: 0;
+}
+.pay-select .slick-list {
+  padding-left: 0 !important;
+}
+.pay-select .slick-slider {
+  width: 400px;
+  margin-top: 30px;
+  padding: 0 41px 0 0;
+}
+.pay-select .slick-slider {
+}
+.pay-select .slick-arrow {
+  background: red;
+}
+.pay-select .slider-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+.pay-select .tab-content .nav-tabs li:last-child a:before,
+.pay-select .tab-content .nav-tabs li a:after {
+  display: none;
+}
+.discount-body .card-slick-item {
+  padding-right: 40px;
+}
+.discount-body .card-slick-item img {
+  margin-bottom: 10px;
+  width: 210px;
+  min-width: 210px;
+  transition: all ease 0.3s;
+  border-radius: 10px;
+}
+.discount-body .card-slick-item .img-non {
+  border-radius: 16px;
+  color: #aaaaaa;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.discount-body .card-slick-item img:hover {
+  box-shadow: 2px 3px 10px rgb(119 119 119 / 20%);
+  cursor: pointer;
+}
+.discount-body .card-slick-item h2 {
+  margin: 0;
+  color: #000000;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: center;
+}
+.discount-body .slick-next {
+  width: 35px;
+  height: 35px;
+  left: 100%;
+  background: center / contain no-repeat
+    url("@/assets/images/chervon_next_02.png");
+}
+.discount-body .slick-next:before {
+  display: none;
+}
+.tax-inner .input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.tax-inner .label {
+  width: 150px;
+  color: #333333;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.tax-inner input {
+  width: 350px;
+  max-width: 350px;
+  height: 45px;
+  margin-right: 10px;
+  background: #fff;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px !important;
+}
+.tax-inner input::placeholder {
+  color: #bebebe;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.tax-inner button {
+  min-width: 125px;
+  border-radius: 6px !important;
+}
+#add-card-modal .modal-md {
+  margin-top: 15%;
+}
+#add-card-modal .modal-body {
+  padding: 44px 30px;
+}
+#add-card-modal .modal-body h2 {
+  padding-bottom: 9px;
+  margin-bottom: 20px;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #f0f0f0;
+}
+#add-card-modal .form-group > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+#add-card-modal .input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+#add-card-modal .input-group .label,
+#add-card-modal .form-group .label {
+  width: 120px;
+  min-width: 120px;
+  margin-bottom: 0;
+  color: #424a5d;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+#add-card-modal .form-group .btn-group {
+  width: 100%;
+}
+#add-card-modal .form-group span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin-right: 10px;
+  padding: 11px 0;
+  background-color: #fff;
+  border: 1px solid #bebebe;
+  border-radius: 4px !important;
+}
+#add-card-modal .form-group .btn {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 0;
+  background: unset;
+  color: #000000;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border: 0;
+  border-radius: 4px !important;
+}
+#add-card-modal .custom-radio {
+  margin-right: 20px;
+}
+#add-card-modal .custom-radio label {
+  position: relative;
+  padding-left: 15px;
+}
+#add-card-modal .input-group input {
+  height: 42px;
+  border: 1px solid #bebebe;
+  border-radius: 4px;
+}
+#add-card-modal .input-group input:focus {
+  box-shadow: unset;
+  border-color: #362189;
+}
+#add-card-modal .form-group .btn:last-child,
+#add-card-modal .custom-radio:last-child,
+#add-card-modal .form-group .btn:last-child span {
+  margin-right: 0;
+}
+#add-card-modal .form-group .btn input,
+#add-card-modal .custom-radio input {
+  display: none;
+}
+#add-card-modal input[type="radio"]:checked + span {
+  border-color: #6e3cbc;
+  color: #6e3cbc;
+}
+#add-card-modal .custom-radio label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border: 1px solid #707070;
+  border-radius: 100%;
+}
+#add-card-modal .custom-radio label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 100%;
+}
+#add-card-modal .custom-radio input[type="radio"]:checked + label::before {
+  border-color: #6e3cbc;
+}
+#add-card-modal .custom-radio input[type="radio"]:checked + label::after {
+  background-color: #6e3cbc;
+}
+#add-card-modal .custom-radio label:hover {
+  cursor: pointer;
+}
+.card-modal-footer {
+  display: flex;
+}
+.card-modal-footer .def-btn {
+  height: 50px;
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 50px;
+}
+.card-modal-footer .def-btn:last-child {
+  margin-right: 0;
+}
+.card-modal-body {
+  margin-bottom: 40px;
 }
 </style>

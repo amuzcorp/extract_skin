@@ -1,7 +1,8 @@
 [
   {
-    "id": "pdf-book",
+    "id": "pdfBook",
     "title": "PDF 책",
+    "iconPng": "img_pdf_book",
     "isHot": false,
     "thumbnail": "pdfBook",
     "miniId": "mini-pdf-book",
@@ -10,6 +11,7 @@
       {
         "id": "tips",
         "title": "노하우",
+        "iconPng": "",
         "isHot": false,
         "thumbnail": "",
         "miniId": "mini-pdf-book",
@@ -18,6 +20,7 @@
       {
         "id": "finance",
         "title": "재테크",
+        "iconPng": "",
         "isHot": false,
         "thumbnail": "",
         "miniId": "mini-pdf-book",
@@ -26,6 +29,7 @@
       {
         "id": "divan",
         "title": "시집",
+        "iconPng": "",
         "isHot": false,
         "thumbnail": "",
         "miniId": "mini-pdf-book",
@@ -34,6 +38,7 @@
       {
         "id": "history",
         "title": "자소서",
+        "iconPng": "",
         "isHot": false,
         "thumbnail": "",
         "miniId": "mini-pdf-book",
@@ -42,6 +47,7 @@
       {
         "id": "template",
         "title": "템플릿",
+        "iconPng": "",
         "isHot": false,
         "thumbnail": "",
         "miniId": "mini-pdf-book",
@@ -52,6 +58,7 @@
   {
     "id": "report",
     "title": "보고서",
+    "iconPng": "img_report",
     "isHot": false,
     "thumbnail": "report",
     "miniId": "mini-pdf-book",
@@ -61,6 +68,7 @@
   {
     "id": "start-up",
     "title": "스타트업",
+    "iconPng": "img_start",
     "isHot": false,
     "thumbnail": "start",
     "miniId": "mini-pdf-book",
@@ -70,6 +78,7 @@
   {
     "id": "drawing",
     "title": "설계/도면",
+    "iconPng": "img_drawing",
     "isHot": false,
     "thumbnail": "drawing",
     "miniId": "mini-pdf-book",
@@ -79,6 +88,7 @@
   {
     "id": "phrases",
     "title": "디지털문구",
+    "iconPng": "img_diary",
     "isHot": false,
     "thumbnail": "phrases",
     "miniId": "mini-pdf-book",
@@ -88,6 +98,7 @@
   {
     "id": "music",
     "title": "브금",
+    "iconPng": "img_music",
     "isHot": false,
     "thumbnail": "music",
     "miniId": "mini-pdf-book",
@@ -97,6 +108,7 @@
   {
     "id": "model",
     "title": "모델/초상권",
+    "iconPng": "img_model",
     "isHot": false,
     "thumbnail": "model",
     "miniId": "mini-pdf-book",
@@ -106,6 +118,7 @@
   {
     "id": "workbook",
     "title": "문제집/족보",
+    "iconPng": "img_workbook",
     "isHot": false,
     "thumbnail": "workbook",
     "miniId": "mini-pdf-book",
@@ -115,6 +128,7 @@
   {
     "id": "pictorial",
     "title": "화보",
+    "iconPng": "img_pictorial",
     "isHot": false,
     "thumbnail": "pictorial",
     "miniId": "mini-pdf-book",
@@ -124,6 +138,7 @@
   {
     "id": "font",
     "title": "폰트",
+    "iconPng": "img_font",
     "isHot": false,
     "thumbnail": "font",
     "miniId": "mini-pdf-book",
@@ -133,6 +148,7 @@
   {
     "id": "program",
     "title": "프로그램",
+    "iconPng": "img_program",
     "isHot": false,
     "thumbnail": "program",
     "miniId": "mini-pdf-book",
@@ -142,6 +158,7 @@
   {
     "id": "design",
     "title": "디자인",
+    "iconPng": "img_design",
     "isHot": false,
     "thumbnail": "design",
     "miniId": "mini-pdf-book",
@@ -151,17 +168,9 @@
   {
     "id": "video-clip",
     "title": "영상클립",
+    "iconPng": "img_video",
     "isHot": false,
     "thumbnail": "videoClip",
-    "miniId": "mini-pdf-book",
-    "listId": "li-all",
-    "children": []
-  },
-  {
-    "id": "",
-    "title": "",
-    "isHot": false,
-    "thumbnail": "",
     "miniId": "mini-pdf-book",
     "listId": "li-all",
     "children": []
