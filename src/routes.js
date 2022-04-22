@@ -82,6 +82,38 @@ const routes = [
         name: "purchaseShow",
         component: () => import("./pages/purchase/show"),
       },
+      {
+        path: "create",
+        name: "purchaseCreate",
+        component: () => import("./pages/purchase/create"),
+      },
+    ],
+  },
+  {
+    path: "/login",
+    name: "loginPage",
+    component: () => import("./pages/user/login"),
+  },
+  {
+    path: "/partner",
+    name: "partnerIndex",
+    component: () => import("./pages/partner/index"),
+    children: [
+      {
+        path: "",
+        name: "partnerHome",
+        component: () => import("./pages/partner/home"),
+      },
+      {
+        path: "join",
+        name: "partnerList",
+        component: () => import("./pages/partner/list"),
+      },
+      {
+        path: "thank",
+        name: "partnerShow",
+        component: () => import("./pages/partner/show"),
+      },
     ],
   },
 ];

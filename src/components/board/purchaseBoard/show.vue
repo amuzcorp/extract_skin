@@ -49,7 +49,7 @@
       <div class="body-bottom">
         <div class="btn-area">
           <span class="btn">희망가격 : 30,000원</span>
-          <b-button>내가 팔게요!</b-button>
+          <b-button v-b-modal.prod-num-modal>내가 팔게요!</b-button>
         </div>
 
         <a class="douwn btn">
@@ -115,6 +115,45 @@
           ></a>
         </li>
 
+        <!-- 공개 -->
+        <li>
+          <span class="user-info">
+            <ul>
+              <li><img src="@/assets/images/icon_user.png" /></li>
+              <li>22-9876-1234</li>
+              <li class="time">5분전</li>
+            </ul>
+          </span>
+          <a href="" class="user-shop-btn delete-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-box2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"
+              />
+            </svg>
+            상품확인하기
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chevron-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+              />
+            </svg>
+          </a>
+        </li>
+
         <!-- 비공개 -->
         <li>
           <span class="user-info lock">
@@ -150,6 +189,40 @@
         </ul>
       </div>
     </div>
+
+    <b-modal id="prod-num-modal" ref="prod-num-modal" hide-footer hide-header>
+      <h2>상품고유번호를 입력해주세요.</h2>
+      <b-form-input
+        type="text"
+        placeholder="예) 2021-1212-09164"
+        v-model="prodNum"
+      ></b-form-input>
+      <div class="prod-num-modal-footer">
+        <div class="btn-area">
+          <a @click="hideModal" class="def-btn-off def-btn">취소</a>
+          <a class="def-btn-on def-btn">입력완료</a>
+        </div>
+        <div class="info">
+          <p>아직 상품이 등록되지 않았나요?</p>
+          <router-link :to="{ name: 'purchaseCreate' }"
+            >상품 등록하러가기
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chevron-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+              />
+            </svg>
+          </router-link>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -158,7 +231,7 @@ import pageNext from "@/assets/images/chervon_next.png";
 import pagePrev from "@/assets/images/chervon_prev.png";
 
 export default {
-  name: "search-show-skin",
+  name: "purchase-show-skin",
   components: {
     BoardAd,
   },
@@ -166,7 +239,13 @@ export default {
     return {
       pageNext: pageNext,
       pagePrev: pagePrev,
+      prodNum: "",
     };
+  },
+  methods: {
+    hideModal() {
+      this.$refs["prod-num-modal"].hide();
+    },
   },
 };
 </script>
@@ -235,8 +314,8 @@ export default {
   border: 1px solid #d5d5d5;
   border-radius: 10px;
 }
-.btn-area button,
-.btn-area span {
+.board-view-body .btn-area button,
+.board-view-body .btn-area span {
   padding: 15px 50px;
   background-color: #6e3cbc;
   color: #fff;
@@ -244,14 +323,14 @@ export default {
   font-weight: 500;
   border-radius: 6px;
 }
-.btn-area button {
+.board-view-body .btn-area button {
   margin-left: 10px;
   background-color: #300474;
 }
-.btn-area .btn:hover {
+.board-view-body .btn-area .btn:hover {
   color: #fff;
 }
-.btn-area button:hover {
+.board-view-body .btn-area button:hover {
   background-color: #300474;
 }
 .body-bottom .douwn {
@@ -287,6 +366,15 @@ export default {
   transform: translateY(-50%);
   color: #424a5d;
 }
+.board-view-footer ul li .user-shop-btn {
+  display: flex;
+  align-items: center;
+  color: #6e3cbc;
+}
+.board-view-footer ul li .user-shop-btn svg {
+  margin: 0 10px;
+}
+/*  */
 .board-view-footer .user-info ul li {
   margin-right: 15px;
   color: #424a5d;
@@ -343,5 +431,65 @@ export default {
 .def-board-view .pagenation ul li a.active {
   color: #7f63f4;
   background-color: #f1eefd;
+}
+
+/* modal */
+#prod-num-modal .modal-dialog {
+  margin-top: 14%;
+}
+#prod-num-modal .modal-content {
+  border-radius: 10px;
+}
+#prod-num-modal h2 {
+  margin-bottom: 11px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+#prod-num-modal .modal-body {
+  padding: 39px 56px;
+}
+#prod-num-modal .form-control {
+  height: 48px;
+  margin-bottom: 15px;
+  border: 1px solid #707070;
+  border-radius: 4px;
+}
+#prod-num-modal .form-control::placeholder {
+  color: #a3a3a3;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+#prod-num-modal .btn-area {
+  display: flex;
+  margin-bottom: 17px;
+}
+#prod-num-modal .btn-area .def-btn {
+  width: 100%;
+}
+#prod-num-modal .btn-area .def-btn-off {
+  margin-right: 10px;
+}
+#prod-num-modal .info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#prod-num-modal .info p {
+  margin: 0;
+  color: #6a707e;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+#prod-num-modal .info a {
+  display: flex;
+  align-items: center;
+  color: #6e3cbc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: unset;
+}
+#prod-num-modal .info a svg {
+  width: 12px;
+  margin-left: 5px;
 }
 </style>

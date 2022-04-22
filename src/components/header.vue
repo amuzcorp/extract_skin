@@ -272,6 +272,27 @@
                     </b-dropdown-item>
                   </b-dropdown>
                 </a>
+
+                <!-- 로그인 -->
+                <router-link
+                  :to="{ name: 'loginPage' }"
+                  class="login-btn d-none"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-person"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+                    />
+                  </svg>
+                  로그인
+                </router-link>
+
                 <!-- 유저 메뉴 -->
                 <a @mouseover="onOver" @mouseleave="onLeave" class="user-nav">
                   <img :src="icon_user" />
@@ -309,15 +330,17 @@
                       />
                       나의 프로필</b-dropdown-item
                     >
-                    <b-dropdown-item href="#" class="sub-item">
-                      <icon-slot
-                        :iconName="'partner'"
-                        :svgHeight="20"
-                        :svgWidth="20"
-                        :iconColor="'#424a5d'"
-                      />
-                      파트너스 가입</b-dropdown-item
-                    >
+                    <li class="sub-item">
+                      <router-link :to="{ name: 'partnerHome' }">
+                        <icon-slot
+                          :iconName="'partner'"
+                          :svgHeight="20"
+                          :svgWidth="20"
+                          :iconColor="'#424a5d'"
+                        />
+                        파트너스 가입
+                      </router-link>
+                    </li>
                     <b-dropdown-item href="#" class="sub-item">
                       <icon-slot
                         :iconName="'client'"
@@ -615,6 +638,14 @@ export default {
   font-size: 1rem;
   font-weight: 500;
   transition: all ease 0.35s;
+}
+.header-btn-area .login-btn {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.header-btn-area .login-btn svg {
+  margin-right: 5px;
 }
 .header-btn-area > a .btn {
   padding: 0;

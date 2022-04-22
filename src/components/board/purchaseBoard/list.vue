@@ -1,12 +1,20 @@
 <template>
   <div class="def-board">
-    <div class="board-header">
+    <div class="board-header" :class="{ cateSub: boardCateSubSelect }">
+      <h2>{{ boardTit }}</h2>
       <div class="table-select">
+        <b-form-select
+          class="cate-sub-select"
+          v-model="cateSubSelected"
+          :options="cateSubOptions"
+        ></b-form-select>
         <b-form-select
           v-model="tableSelected"
           :options="tableOptions"
         ></b-form-select>
-        <a href="" class="creat-btn"> 공고 올리기 </a>
+        <router-link :to="{ name: 'purchaseCreate' }" class="creat-btn">
+          공고 올리기
+        </router-link>
       </div>
     </div>
     <table>
@@ -85,9 +93,11 @@ import pageNext from "@/assets/images/chervon_next.png";
 import pagePrev from "@/assets/images/chervon_prev.png";
 
 export default {
-  name: "search-list-skin",
+  name: "purchase-list-skin",
   props: {
     boardList: { require: false },
+    boardCateSubSelect: { require: false, default: false },
+    boardTit: { require: false, default: "" },
   },
   data() {
     return {
@@ -95,6 +105,12 @@ export default {
       tableSelected: null,
       tableOptions: [
         { value: null, text: "최신순" },
+        { value: "data-form", text: "데이터 + 양식" },
+        { value: "form", text: "양식" },
+      ],
+      cateSubSelected: null,
+      cateSubOptions: [
+        { value: null, text: "소분류를 선택해주세요." },
         { value: "data-form", text: "데이터 + 양식" },
         { value: "form", text: "양식" },
       ],
@@ -107,9 +123,14 @@ export default {
 <style>
 .board-header {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
+}
+.board-header h2 {
+  color: #333333;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 .board-header .custom-select {
   width: 140px;
@@ -219,5 +240,12 @@ export default {
 .def-board .pagenation ul li a.active {
   color: #7f63f4;
   background-color: #f1eefd;
+}
+.board-header .custom-select.cate-sub-select {
+  display: none;
+}
+.board-header.cateSub .custom-select.cate-sub-select {
+  display: inline-block;
+  width: 250px;
 }
 </style>

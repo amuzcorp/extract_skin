@@ -14,22 +14,28 @@
         </a>
       </div>
 
-      <div class="list-footer"></div>
+      <div class="list-footer">
+        <BoardSkin :boardList="this.boardList" :boardTit="'구매공고 게시판'" />
+      </div>
     </b-container>
   </div>
 </template>
 <script>
+import boardList from "@/api/board.json";
 import BoardAd from "@/components/ad/board-ad.vue";
 import CateNavItem from "@/components/cate-nav.vue";
+import BoardSkin from "@/components/board/purchaseBoard/list.vue";
 
 export default {
   name: "purchaseList",
   components: {
     BoardAd,
     CateNavItem,
+    BoardSkin,
   },
   data() {
     return {
+      boardList,
       cateList: [
         "전체",
         "PDF 책",
@@ -52,6 +58,9 @@ export default {
 };
 </script>
 <style>
+.purchase-list {
+  margin-bottom: 200px;
+}
 .list-header {
   margin-bottom: 45px;
 }
