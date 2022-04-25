@@ -17,9 +17,14 @@ const routes = [
         component: () => import("./pages/product/list"),
       },
       {
-        path: "view/:productName?",
+        path: "show/:productName?",
         name: "productShow",
         component: () => import("./pages/product/show"),
+      },
+      {
+        path: "create",
+        name: "productCreate",
+        component: () => import("./pages/product/create"),
       },
     ],
   },
@@ -113,6 +118,18 @@ const routes = [
         path: "thank",
         name: "partnerShow",
         component: () => import("./pages/partner/show"),
+      },
+    ],
+  },
+  {
+    path: "/profile",
+    name: "profileIndex",
+    component: () => import("./pages/partner/index"),
+    children: [
+      {
+        path: "",
+        name: "profileList",
+        component: () => import("./pages/profile/list"),
       },
     ],
   },

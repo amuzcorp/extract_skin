@@ -192,7 +192,11 @@
             </router-link>
             <div class="header-col">
               <div class="header-btn-area">
-                <a href="#" class="product pr-0">상품 등록</a>
+                <router-link
+                  :to="{ name: 'productCreate' }"
+                  class="product pr-0"
+                  >상품 등록</router-link
+                >
                 <!-- 알림 메뉴 -->
                 <a
                   @mouseover="alertOnOver"
@@ -321,15 +325,17 @@
                       />
                       나의 판매정보</b-dropdown-item
                     >
-                    <b-dropdown-item href="#" class="sub-item">
-                      <icon-slot
-                        :iconName="'profile'"
-                        :svgHeight="20"
-                        :svgWidth="20"
-                        :iconColor="'#424a5d'"
-                      />
-                      나의 프로필</b-dropdown-item
-                    >
+                    <li class="sub-item">
+                      <router-link :to="{ name: 'profileList' }">
+                        <icon-slot
+                          :iconName="'profile'"
+                          :svgHeight="20"
+                          :svgWidth="20"
+                          :iconColor="'#424a5d'"
+                        />
+                        나의 프로필
+                      </router-link>
+                    </li>
                     <li class="sub-item">
                       <router-link :to="{ name: 'partnerHome' }">
                         <icon-slot
@@ -452,6 +458,7 @@ export default {
   transform: translateX(-50%);
   height: 52px;
   opacity: 0;
+  visibility: hidden;
 }
 .floating-btn a {
   position: relative;
@@ -466,6 +473,7 @@ export default {
   z-index: 99;
   opacity: 0;
   transition: all ease 0.35s;
+  visibility: initial;
 }
 .floating-btn a:hover {
   cursor: pointer;

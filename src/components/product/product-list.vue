@@ -9,7 +9,7 @@
       </ul>
       <ul v-else class="prod-nav"></ul>
 
-      <div class="select-area">
+      <div v-if="select" class="select-area">
         <div class="ann-select">
           <b-form-select
             v-model="dataSelected"
@@ -25,7 +25,13 @@
       </div>
     </div>
 
-    <div class="list-body" :class="{ 'ex-col-5': this.cols5 }">
+    <div
+      class="list-body"
+      :class="{
+        'ex-col-5': this.cols5,
+        'add-more-btn': moreBtn == false,
+      }"
+    >
       <b-row class="prod-list-row">
         <b-col
           :cols="cols"
@@ -105,7 +111,7 @@
       </b-row>
     </div>
 
-    <div class="pagenation">
+    <div class="pagenation" v-if="moreBtn">
       <ul>
         <li class="first-btn">
           <a href="#"><img :src="pagePrev" /></a>
@@ -119,6 +125,23 @@
           <a href="#"><img :src="pageNext" /></a>
         </li>
       </ul>
+    </div>
+
+    <div class="more-btn">
+      <b-button v-if="moreBtn == false"
+        >더 보기<svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-chevron-down"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+          /></svg
+      ></b-button>
     </div>
   </div>
 </template>
@@ -135,6 +158,8 @@ export default {
     cols: { require: false, type: Number, default: 3 },
     productList: { require: false, type: Number, default: 3 },
     cols5: { require: false, type: Boolean, default: false },
+    select: { require: false, type: Boolean, default: true },
+    moreBtn: { require: false, type: Boolean, default: true },
   },
   components: { iconSlot },
   data() {
@@ -160,6 +185,23 @@ export default {
 };
 </script>
 <style>
+.more-btn {
+  width: 100%;
+  text-align: center;
+}
+.more-btn .btn {
+  padding: 17px 68px;
+  color: #6a707e;
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: #fff;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+}
+.more-btn .btn svg {
+  margin-left: 6px;
+  margin-bottom: 3px;
+}
 /* Product List */
 .prod-wrap .week-best-wrap {
   margin-bottom: 200px;
@@ -192,6 +234,9 @@ export default {
 }
 .list-body {
   margin-bottom: 100px;
+}
+.list-body.add-more-btn {
+  margin-bottom: 53px;
 }
 .list-body .vue-slick-item {
   height: auto;

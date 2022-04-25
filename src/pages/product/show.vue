@@ -96,8 +96,14 @@
         <b-col cols="7">
           <div class="info-col">
             <div class="info-header mb-10">
-              <h1>디자인</h1>
+              <ul class="cate-prodNum">
+                <li>디자인</li>
+                <!-- 내 제품일 경우 -->
+                <li>상품고유번호 : 92822434</li>
+                <!-- // 내 제품일 경우 -->
+              </ul>
               <ul>
+                <!-- 내 제품이 아닐 경우 -->
                 <li :class="{ none: isWar }">
                   <button
                     type="button"
@@ -113,6 +119,7 @@
                     <img :src="warning" />
                   </button>
                 </li>
+                <!-- // 내 제품이 아닐 경우 -->
                 <li>
                   <button type="button" class="like-btn box-shadow def-btn">
                     <svg
@@ -150,6 +157,9 @@
               </div>
               <h3>₩ 25,000</h3>
               <ul class="tag-con">
+                <!-- 모델/초상권 -->
+                <li><a class="box-shadow">초상권 계약기간 2년</a></li>
+                <!-- // 모델/초상권 -->
                 <li><a class="box-shadow">일러스트</a></li>
                 <li><a class="box-shadow">JPG</a></li>
                 <li><a class="box-shadow">양식</a></li>
@@ -158,6 +168,7 @@
             </div>
             <div class="info-bottom">
               <ul class="care-txt">
+                <li>해당 상품은 19세 이상만 구매 가능합니다.</li>
                 <li>구매전 바이러스 검사를 꼭 하시길 권장합니다.</li>
                 <li>
                   파일 서비스는 자료 제공 형태의 서비스이므로, 수령하신 이후에는
@@ -166,18 +177,76 @@
                 <li>재다운로드는 30일로 제한합니다.</li>
               </ul>
               <div class="btn-area">
+                <!-- 모델/초상권 -->
+                <div class="check-box box-shadow">
+                  <b-form-checkbox
+                    id="model-checkbox"
+                    v-model="modelCheck"
+                    name="model-checkbox"
+                    value="agree"
+                    unchecked-value="not_agree"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-check-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                      />
+                      <path
+                        d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"
+                      />
+                    </svg>
+                    본인은 본인의 초상권을 구매자가 사용하는 것에 대해
+                    동의합니다.
+                  </b-form-checkbox>
+
+                  <b-button v-b-modal.model-modal>
+                    전문 보기
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-chevron-right"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                      />
+                    </svg>
+                  </b-button>
+                </div>
+                <!-- // 모델/초상권 -->
+
+                <!-- 내 글일 경우 -->
                 <router-link
+                  :to="{ name: 'productCreate' }"
+                  class="buy-btn box-shadow"
+                  >수정하기</router-link
+                >
+                <b-button class="mk-link-btn box-shadow"
+                  >내 상품 목록가기</b-button
+                >
+                <b-button class="mk-link-btn box-shadow">삭제하기</b-button>
+                <!-- // 내 글일 경우 -->
+                <!-- <router-link
                   :to="{
                     name: 'cert',
                   }"
-                  class="buy-btn"
+                  class="buy-btn box-shadow"
                 >
                   구매하기
                 </router-link>
-                <b-button class="mk-link-btn" v-b-modal.partner-modal
+                <b-button class="mk-link-btn box-shadow" v-b-modal.partner-modal
                   >판매 링크 생성하기</b-button
                 >
-                <span class="like-btns" :class="{ like: isHeart }">
+                <span class="like-btns box-shadow" :class="{ like: isHeart }">
                   <b-button
                     v-b-modal.like-modal
                     v-on:click="clickHeart"
@@ -210,7 +279,7 @@
                       />
                     </svg>
                   </b-button>
-                </span>
+                </span> -->
               </div>
             </div>
           </div>
@@ -644,7 +713,7 @@
                         </div>
                       </div>
 
-                      <div class="contact-footer">
+                      <div class="contact-footer mb-10">
                         <a>
                           더보기
                           <svg
@@ -715,6 +784,41 @@
         <a href="#" @click="hideModal" class="def-btn-on def-btn">확인</a>
       </div>
     </b-modal>
+
+    <b-modal id="model-modal" ref="model-modal" hide-footer hide-header>
+      <div class="model-modal-body">
+        <p>
+          회원님의 엑기스 본인인증을 통해 확인된 내용입니다.회원님의 엑기스
+          본인인증을 통해 확인된 내용입니다.회원님의 엑기스 본인인증을 통해
+          확인된 내용입니다.회원님의 엑기스 본인인증을 통해 확인된
+          내용입니다.회원님의 엑기스 본인인증을 통해 확인된 내용입니다.회원님의
+          엑기스 본인인증을 통해 확인된 내용입니다.회원님의 엑기스 본인인증을
+          통해 확인된 내용입니다.회원님의 엑기스 본인인증을 통해 확인된
+          내용입니다.회원님의 엑기스 본인인증을 통해 확인된 내용입니다.회원님의
+          엑기스 본인인증을 통해 확인된 내용입니다.회원님의 엑기스 본인인증을
+          통해 확인된 내용입니다.회원님의 엑기스 본인인증을 통해 확인된
+          내용입니다.회원님의 엑기스 본인인증을 통해 확인된 내용입니다.회원님의
+          엑기스 본인인증을 통해 확인된 내용입니다.회원님의 엑기스 본인인증을
+          통해 확인된 내용입니다.회원님의 엑기스 본인인증을 통해 확인된
+          내용입니다.회원님의 엑기스 본인인증을 통해 확인된 내용입니다.회원님의
+          엑기스 본인인증을 통해 확인된 내용입니다.회원님의 엑기스 본인인증을
+          통해 확인된 내용입니다.회원님의 엑기스 본인인증을 통해 확인된
+          내용입니다.회원님의 엑기스 본인인증을 통해 확인된 내용입니다.회원님의
+          엑기스 본인인증을 통해 확인된 내용입니다.회원님의 엑기스 본인인증을
+          통해 확인된 내용입니다.회원님의 엑기스 본인인증을 통해 확인된
+          내용입니다.회원님의 엑기스 본인인증을 통해 확인된 내용입니다.회원님의
+          엑기스 본인인증을 통해 확인된 내용입니다.회원님의 엑기스 본인인증을
+          통해 확인된 내용입니다.회원님의 엑기스 본인인증을 통해 확인된
+          내용입니다.회원님의 엑기스 본인인증을 통해 확인된 내용입니다.회원님의
+          엑기스 본인인증을 통해 확인된 내용입니다.회원님의 엑기스 본인인증을
+          통해 확인된 내용입니다.회원님의 엑기스 본인인증을 통해 확인된
+          내용입니다.
+        </p>
+      </div>
+      <div class="model-modal-footer">
+        <b-button @click="hideModal">확인</b-button>
+      </div>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -767,6 +871,7 @@ export default {
       contactText: "",
       getReviewCtn: 25,
       getContactCtn: 37,
+      modelCheck: "not_agree",
     };
   },
   methods: {
@@ -781,6 +886,7 @@ export default {
       this.$refs["like-modal"].hide();
       this.$refs["war-modal"].hide();
       this.$refs["partner-modal"].hide();
+      this.$refs["model-modal"].hide();
     },
     collapseBtn() {
       this.isCollapse = !this.isCollapse;
@@ -816,10 +922,28 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
-.info-header h1 {
+.info-header .cate-prodNum li {
+  position: relative;
+  padding-right: 20px;
   color: #6a707e;
   font-size: 1.1rem;
   font-weight: 500;
+}
+.info-header .cate-prodNum li:last-child:after {
+  display: none;
+}
+.info-header .cate-prodNum li:last-child {
+  padding-right: 0;
+}
+.info-header .cate-prodNum li:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;
+  background-color: #6a707e;
 }
 .info-header ul .war-btn,
 .info-header ul .like-btn {
@@ -941,7 +1065,7 @@ export default {
   color: #fff;
 }
 .info-bottom .care-txt {
-  margin-bottom: 90px;
+  margin-bottom: 29px;
 }
 .info-bottom .care-txt li {
   position: relative;
@@ -972,6 +1096,70 @@ export default {
   border: 1px solid #300474;
   border-radius: 6px;
   text-align: center;
+}
+.info-bottom .btn-area {
+  position: relative;
+  display: flex;
+  align-items: end;
+  height: 116px;
+}
+.info-bottom .btn-area .check-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 550px;
+  height: 40px;
+  padding: 9px 20px;
+  color: #6a707e;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+}
+.info-bottom .btn-area .check-box .btn {
+  padding: 0;
+  background-color: #fff;
+  color: #6a707e;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border: 0;
+}
+.info-bottom .btn-area .check-box .btn svg {
+  width: 12px;
+  margin-right: 0;
+  margin-bottom: 3px;
+}
+#model-modal .modal-body {
+  padding: 30px;
+  border-radius: 13px;
+}
+#model-modal .model-modal-footer .btn {
+  width: 100%;
+}
+#model-modal .modal-dialog {
+  margin-top: 15%;
+}
+#model-modal .model-modal-body {
+  height: 450px;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
+.info-bottom .btn-area .check-box svg {
+  margin-right: 5px;
+  margin-bottom: 2px;
+}
+.info-bottom .btn-area .check-box label:hover {
+  cursor: pointer;
+}
+.info-bottom .btn-area input[type="checkbox"] {
+  display: none;
+}
+.info-bottom .btn-area input[type="checkbox"]:checked + label svg {
+  color: #9e7dd2;
 }
 .info-bottom .like-btns .bi-heart-fill,
 .info-bottom .like-btns.like .bi-heart {

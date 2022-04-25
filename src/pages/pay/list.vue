@@ -96,7 +96,7 @@
                   <!-- 카드 -->
                   <b-tab title="신용카드" active>
                     <b-tabs content-class="mt-3">
-                      <b-tab title="등록된 결제 카드" active>
+                      <b-tab title="카드 간편결제" active>
                         <div class="slider-wrap">
                           <VueSlickCarousel v-bind="cardSettings">
                             <a
@@ -124,7 +124,7 @@
                           </VueSlickCarousel>
                         </div>
                       </b-tab>
-                      <b-tab title="기타 카드"><p>기타 카드</p></b-tab>
+                      <b-tab title="일반결제"><p></p></b-tab>
                     </b-tabs>
                   </b-tab>
                   <!-- 실시간 계좌이체 -->
@@ -712,7 +712,7 @@ export default {
 }
 .pay-select .tab-content .nav-tabs li a.active {
   font-weight: 500;
-  color: #333;
+  color: #6e3cbc;
 }
 .pay-select .tab-content .nav-tabs li a:before {
   top: 50%;
