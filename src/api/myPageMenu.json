@@ -1,0 +1,122 @@
+[
+  {
+    "id": "buy",
+    "label": "나의 구매",
+    "children": [
+      {
+        "label": "나의 구매정보",
+        "icon": "myIconBuy1",
+        "link": "MyPageFrame"
+      },
+      {
+        "label": "내 공고",
+        "icon": "myIconBuy2",
+        "link": "partnerShow"
+      },
+      {
+        "label": "구매목록",
+        "icon": "myIconBuy3",
+        "link": "partnerShow"
+      },
+      {
+        "label": "결제관리",
+        "icon": "myIconBuy4",
+        "link": "partnerShow"
+      },
+      {
+        "label": "리뷰작성",
+        "icon": "myIconBuy5",
+        "link": "partnerShow"
+      },
+      {
+        "label": "찜목록",
+        "icon": "myIconBuy6",
+        "link": "partnerShow"
+      },
+      {
+        "label": "보유쿠폰",
+        "icon": "myIconBuy7",
+        "link": "partnerShow"
+      }
+    ]
+  },
+  {
+    "id": "partner",
+    "label": "파트너스",
+    "children": [
+      {
+        "label": "파트너스활동",
+        "icon": "myIconPartner1",
+        "link": "partnerShow"
+      }
+    ]
+  },
+  {
+    "id": "sell",
+    "label": "나의 판매",
+    "children": [
+      {
+        "label": "나의 판매정보",
+        "icon": "myIconSell1",
+        "link": "partnerShow"
+      },
+      {
+        "label": "출금내역",
+        "icon": "myIconSell2",
+        "link": "partnerShow"
+      },
+      {
+        "label": "판매내역",
+        "icon": "myIconSell3",
+        "link": "partnerShow"
+      },
+      {
+        "label": "내 상품",
+        "icon": "myIconSell4",
+        "link": "partnerShow"
+      },
+      {
+        "label": "리뷰보기",
+        "icon": "myIconSell5",
+        "link": "partnerShow"
+      }
+    ]
+  },
+  {
+    "id": "info",
+    "label": "My 정보",
+    "children": [
+      {
+        "label": "1:1 문의하기",
+        "icon": "myIconInfo1",
+        "link": "partnerShow"
+      },
+      {
+        "label": "자주하는 질문",
+        "icon": "myIconInfo2",
+        "link": "partnerShow"
+      },
+      {
+        "label": "수신동의 여부 확인",
+        "icon": "myIconInfo3",
+        "link": "partnerShow"
+      },
+      {
+        "label": "공지사항",
+        "icon": "myIconInfo4",
+        "link": "partnerShow"
+      }
+    ]
+  },
+  {
+    "id": "logout",
+    "label": "로그아웃",
+    "children": [
+      {
+        "label": "로그아웃",
+        "icon": "myIconLogout1",
+        "link": "partnerShow"
+      }
+    ]
+  }
+]

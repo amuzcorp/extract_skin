@@ -41,7 +41,7 @@
               <div class="profile-card-footer">
                 <ul>
                   <li>
-                    <a href="">
+                    <a v-b-modal.edit-modal>
                       프로필 수정
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -271,9 +271,199 @@
           ></star-rating>
           <p>25개의 후기</p>
         </div>
+
+        <div class="profile-after-wrap">
+          <div class="prod-after-list">
+            <!-- item 1 -->
+            <div class="after-item">
+              <div class="item-header">
+                <h4>홍길동 모델화보 전집 팝니다.</h4>
+                <ul>
+                  <li>cwalwall</li>
+                  <li>2021-12-09</li>
+                  <li>
+                    <star-rating
+                      :increment="0.5"
+                      inactive-color="#DDDDDD"
+                      active-color="#6E3CBC"
+                      v-bind:star-size="14"
+                      :show-rating="false"
+                      :rounded-corners="false"
+                      :read-only="true"
+                      :rating="4"
+                    ></star-rating>
+                  </li>
+                </ul>
+              </div>
+              <div class="item-body">
+                <div
+                  class="img"
+                  :style="'background-image: url(' + afterUser + ')'"
+                ></div>
+                <p>
+                  생각했던 퀄리티보다 훨씬 좋아서 의외였습니다. 가격대비 상당히
+                  좋은 가성비 가지고있으며 양 또한 어마어마합니다. 홍길동 모델
+                  좋아하시는 분이라면 꼭 구매하시길 바랄께요! 별점 5점만점에
+                  10점 드릴게요!! 수고하세요 :)
+                </p>
+              </div>
+            </div>
+
+            <!-- item 2 -->
+            <div class="after-item">
+              <div class="item-header">
+                <h4>홍길동 모델화보 전집 팝니다.</h4>
+                <ul>
+                  <li>cwalwall</li>
+                  <li>2021-12-09</li>
+                  <li>
+                    <star-rating
+                      :increment="0.5"
+                      inactive-color="#DDDDDD"
+                      active-color="#6E3CBC"
+                      v-bind:star-size="14"
+                      :show-rating="false"
+                      :rounded-corners="false"
+                      :read-only="true"
+                      :rating="4"
+                    ></star-rating>
+                  </li>
+                </ul>
+              </div>
+              <div class="item-body">
+                <div
+                  class="img"
+                  :style="'background-image: url(' + afterUser + ')'"
+                ></div>
+                <p>
+                  생각했던 퀄리티보다 훨씬 좋아서 의외였습니다. 가격대비 상당히
+                  좋은 가성비 가지고있으며 양 또한 어마어마합니다. 홍길동 모델
+                  좋아하시는 분이라면 꼭 구매하시길 바랄께요! 별점 5점만점에
+                  10점 드릴게요!! 수고하세요 :)
+                </p>
+              </div>
+            </div>
+
+            <!-- item 3 -->
+            <div class="after-item">
+              <div class="item-header">
+                <h4>홍길동 모델화보 전집 팝니다.</h4>
+                <ul>
+                  <li>cwalwall</li>
+                  <li>2021-12-09</li>
+                  <li>
+                    <star-rating
+                      :increment="0.5"
+                      inactive-color="#DDDDDD"
+                      active-color="#6E3CBC"
+                      v-bind:star-size="14"
+                      :show-rating="false"
+                      :rounded-corners="false"
+                      :read-only="true"
+                      :rating="4"
+                    ></star-rating>
+                  </li>
+                </ul>
+              </div>
+              <div class="item-body">
+                <div
+                  class="img"
+                  :style="'background-image: url(' + afterUser + ')'"
+                ></div>
+                <p>
+                  생각했던 퀄리티보다 훨씬 좋아서 의외였습니다. 가격대비 상당히
+                  좋은 가성비 가지고있으며 양 또한 어마어마합니다. 홍길동 모델
+                  좋아하시는 분이라면 꼭 구매하시길 바랄께요! 별점 5점만점에
+                  10점 드릴게요!! 수고하세요 :)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="more-btn">
+            <b-button>
+              더 보기
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+                /></svg
+            ></b-button>
+          </div>
+        </div>
       </div>
       <!-- // review -->
     </b-container>
+
+    <b-modal id="edit-modal" ref="edit-modal" hide-footer hide-header>
+      <div class="edit-modal-body">
+        <div class="edit-form-group">
+          <span class="label">프로필배너</span>
+          <div class="edit-form-group-inner">
+            <a
+              href=""
+              class="not-img"
+              :style="'background-image: url(' + notImg + ')'"
+            ></a>
+            <p>권장사이즈 1280 x 215px / 지원파일 jpg,jpeg, png (최대10mb)</p>
+          </div>
+        </div>
+
+        <div class="edit-form-group">
+          <span class="label">활동명</span>
+          <b-form-input
+            class="max-w-500"
+            type="text"
+            placeholder="활동명을 입력해주세요."
+            v-model="profileName"
+          ></b-form-input>
+        </div>
+        <div class="edit-form-group">
+          <span class="label">프로필사진</span>
+          <div class="edit-form-group-inner">
+            <div class="edit-img">
+              <b-form-input
+                type="text"
+                placeholder="프로필사진을 등록해주세요."
+                v-model="profileImg"
+              ></b-form-input>
+              <b-button>파일 선택</b-button>
+              <b-button class="delete-btn">삭제</b-button>
+            </div>
+            <p>권장사이즈 64 x 64px / 지원파일 jpg,jpeg, png (최대10mb)</p>
+          </div>
+        </div>
+        <div class="edit-form-group">
+          <span class="label">소개글</span>
+          <b-form-textarea
+            id="contactTextarea"
+            v-model="profileIntroTxt"
+            placeholder="소개글을 입력해주세요."
+            rows="8"
+            max-rows="8"
+            class="def-textarea"
+          ></b-form-textarea>
+        </div>
+        <div class="edit-form-group footer">
+          <span class="label"></span>
+          <div class="btn-area">
+            <b-button @click="hideModal" class="def-btn-off def-btn cancel"
+              >취소</b-button
+            >
+            <b-button @click="hideModal" class="def-btn-on def-btn"
+              >수정완료</b-button
+            >
+          </div>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -281,6 +471,8 @@ import StarRating from "vue-star-rating";
 import banner from "@/assets/images/profile_08.png";
 import prodList from "@/api/product.json";
 import iconSlot from "@/components/icon-slot.vue";
+import afterUser from "@/assets/images/icon_user.png";
+import notImg from "@/assets/images/profile_01.png";
 
 export default {
   name: "profile-list-skin",
@@ -293,6 +485,11 @@ export default {
       prodList,
       getProdList: [],
       banner: banner,
+      afterUser: afterUser,
+      notImg: notImg,
+      profileName: "",
+      profileImg: "",
+      profileIntroTxt: "",
     };
   },
   methods: {
@@ -307,6 +504,9 @@ export default {
       }
       this.getProdList.length = 10;
     },
+    hideModal() {
+      this.$refs["edit-modal"].hide();
+    },
   },
   mounted() {
     this.setProdList();
@@ -314,6 +514,177 @@ export default {
 };
 </script>
 <style>
+.max-w-500 {
+  max-width: 500px;
+}
+/* modal */
+#edit-modal .modal-dialog {
+  min-width: 840px;
+  margin-top: 15%;
+}
+#edit-modal .modal-content {
+  border-radius: 10px;
+}
+#edit-modal .modal-body {
+  padding: 47px 48px;
+}
+#edit-modal .edit-form-group {
+  display: flex;
+  align-items: top;
+  margin-bottom: 40px;
+  color: #333333;
+}
+#edit-modal .edit-form-group.footer {
+  margin-top: -20px;
+  margin-bottom: 0;
+}
+#edit-modal .edit-form-group .label {
+  width: 100px;
+  min-width: 100px;
+  padding-top: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+#edit-modal .edit-form-group-inner {
+  flex-grow: 1;
+}
+#edit-modal .edit-form-group-inner a {
+  display: inline-block;
+  width: 100%;
+  height: 106px;
+  background-position: center;
+  background-size: 10%;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+}
+#edit-modal .edit-form-group-inner input {
+  height: 38px;
+}
+#edit-modal .edit-form-group-inner a.not-img {
+  border: 1px solid #bebebe;
+}
+#edit-modal .edit-form-group #contactTextarea {
+  font-size: 0.8rem;
+}
+#edit-modal .edit-form-group input::placeholder {
+  color: #6a707e;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+#edit-modal .edit-img {
+  display: flex;
+  align-items: center;
+}
+#edit-modal .edit-img input {
+  flex-grow: 1;
+}
+#edit-modal .edit-img button {
+  width: 100px;
+  height: 38px;
+  margin-left: 10px;
+  background-color: #6a707e;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 400;
+  border: 1px solid #6a707e;
+}
+#edit-modal .edit-img .delete-btn {
+  background-color: #fff;
+  color: #6a707e;
+  border: 1px solid #6a707e;
+}
+#edit-modal .btn-area {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+#edit-modal .btn-area button {
+  flex-grow: 1;
+  width: 100%;
+  margin-left: 10px;
+  padding: 7px 0px;
+  background-color: #300474;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid #300474;
+}
+#edit-modal .btn-area button.cancel {
+  margin-left: 0;
+  background-color: #fff;
+  color: #333;
+  border-color: #d5d5d5;
+}
+#edit-modal .edit-form-group-inner p {
+  margin: 0;
+  padding-top: 5px;
+  color: #aaaaaa;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+/* after */
+.prod-after-list {
+  margin-bottom: 30px;
+}
+.prod-after-list .after-item:last-child {
+  border-bottom: 0;
+}
+.prod-after-list .after-item {
+  padding: 20px 0 30px 0;
+  color: #000000;
+  border-bottom: 1px solid #d8d8d8;
+}
+.after-item .item-header {
+  margin-bottom: 21px;
+}
+.after-item .item-header h4 {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.after-item .item-body,
+.after-item .item-header ul {
+  display: flex;
+  align-items: center;
+}
+.after-item .item-header ul li {
+  position: relative;
+  padding-right: 20px;
+  color: #333;
+}
+.after-item .item-header ul li:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 50%;
+  background-color: #333;
+}
+.after-item .item-header ul li:last-child {
+  padding: 0;
+}
+.after-item .item-header ul li:nth-child(2):after,
+.after-item .item-header ul li:last-child:after {
+  display: none;
+}
+.after-item .item-body .img {
+  width: 54px;
+  height: 54px;
+  margin-right: 20px;
+  border-radius: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.after-item .item-body p {
+  flex-grow: 1;
+  margin: 0;
+  color: #6a707e;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
 /* Product List */
 .more-btn {
   width: 100%;

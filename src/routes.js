@@ -133,6 +133,18 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/mypage",
+    name: "myPageIndex",
+    component: () => import("./pages/mypage/index"),
+    children: [
+      {
+        path: "purchase",
+        name: "MyPurchase",
+        component: () => import("./pages/mypage/purchase"),
+      },
+    ],
+  },
 ];
 
 export default routes;

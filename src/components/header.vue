@@ -307,15 +307,17 @@
                     :iconColor="'#6A707E'"
                   />
                   <b-dropdown ref="dropdown">
-                    <b-dropdown-item href="#" active class="sub-item">
-                      <icon-slot
-                        :iconName="'buy'"
-                        :svgHeight="20"
-                        :svgWidth="20"
-                        :iconColor="'#424a5d'"
-                      />
-                      나의 구매정보</b-dropdown-item
-                    >
+                    <li class="sub-item">
+                      <router-link :to="{ name: 'MyPageFrame' }">
+                        <icon-slot
+                          :iconName="'buy'"
+                          :svgHeight="20"
+                          :svgWidth="20"
+                          :iconColor="'#424a5d'"
+                        />
+                        나의 구매정보
+                      </router-link>
+                    </li>
                     <b-dropdown-item href="#" class="sub-item">
                       <icon-slot
                         :iconName="'sell'"

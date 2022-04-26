@@ -43,6 +43,25 @@ import floatTop from "@/components/icons/float-top.vue";
 import announcement from "@/components/icons/prod-announcement.vue";
 import handBest from "@/components/icons/hand-best.vue";
 import star from "@/components/icons/star.vue";
+// mypage menu icon
+import myIconBuy1 from "@/components/icons/myPageMenu/my-icon-buy-1.vue";
+import myIconBuy2 from "@/components/icons/myPageMenu/my-icon-buy-2.vue";
+import myIconBuy3 from "@/components/icons/myPageMenu/my-icon-buy-3.vue";
+import myIconBuy4 from "@/components/icons/myPageMenu/my-icon-buy-4.vue";
+import myIconBuy5 from "@/components/icons/myPageMenu/my-icon-buy-5.vue";
+import myIconBuy6 from "@/components/icons/myPageMenu/my-icon-buy-6.vue";
+import myIconBuy7 from "@/components/icons/myPageMenu/my-icon-buy-7.vue";
+import myIconPartner1 from "@/components/icons/myPageMenu/my-icon-partner-1.vue";
+import myIconSell1 from "@/components/icons/myPageMenu/my-icon-sell-1.vue";
+import myIconSell2 from "@/components/icons/myPageMenu/my-icon-sell-2.vue";
+import myIconSell3 from "@/components/icons/myPageMenu/my-icon-sell-3.vue";
+import myIconSell4 from "@/components/icons/myPageMenu/my-icon-sell-4.vue";
+import myIconSell5 from "@/components/icons/myPageMenu/my-icon-sell-5.vue";
+import myIconInfo1 from "@/components/icons/myPageMenu/my-icon-info-1.vue";
+import myIconInfo2 from "@/components/icons/myPageMenu/my-icon-info-2.vue";
+import myIconInfo3 from "@/components/icons/myPageMenu/my-icon-info-3.vue";
+import myIconInfo4 from "@/components/icons/myPageMenu/my-icon-info-4.vue";
+import myIconLogout1 from "@/components/icons/myPageMenu/my-icon-logout-1.vue";
 
 export default {
   name: "iconSlot",
@@ -86,6 +105,25 @@ export default {
     announcement,
     handBest,
     star,
+    // My Page Menu
+    myIconBuy1,
+    myIconBuy2,
+    myIconBuy3,
+    myIconBuy4,
+    myIconBuy5,
+    myIconBuy6,
+    myIconBuy7,
+    myIconPartner1,
+    myIconSell1,
+    myIconSell2,
+    myIconSell3,
+    myIconSell4,
+    myIconSell5,
+    myIconInfo1,
+    myIconInfo2,
+    myIconInfo3,
+    myIconInfo4,
+    myIconLogout1,
   },
   computed: {
     getViewBoxSize() {
@@ -168,11 +206,48 @@ export default {
           return "handBest";
         case "star":
           return "star";
+        case "myIconBuy1":
+          return "myIconBuy1";
+        case "myIconBuy2":
+          return "myIconBuy2";
+        case "myIconBuy3":
+          return "myIconBuy3";
+        case "myIconBuy4":
+          return "myIconBuy4";
+        case "myIconBuy5":
+          return "myIconBuy5";
+        case "myIconBuy6":
+          return "myIconBuy6";
+        case "myIconBuy7":
+          return "myIconBuy7";
+        case "myIconPartner1":
+          return "myIconPartner1";
+        case "myIconSell1":
+          return "myIconSell1";
+        case "myIconSell2":
+          return "myIconSell2";
+        case "myIconSell3":
+          return "myIconSell3";
+        case "myIconSell4":
+          return "myIconSell4";
+        case "myIconSell5":
+          return "myIconSell5";
+        case "myIconInfo1":
+          return "myIconInfo1";
+        case "myIconInfo2":
+          return "myIconInfo2";
+        case "myIconInfo3":
+          return "myIconInfo3";
+        case "myIconInfo4":
+          return "myIconInfo4";
+        case "myIconLogout1":
+          return "myIconLogout1";
         default:
           return "chvronRight";
       }
     },
   },
+  mounted() {},
 };
 </script>
 <style></style>
