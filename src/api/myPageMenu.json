@@ -6,17 +6,17 @@
       {
         "label": "나의 구매정보",
         "icon": "myIconBuy1",
-        "link": "MyPageFrame"
+        "link": "MyPurchase"
       },
       {
         "label": "내 공고",
         "icon": "myIconBuy2",
-        "link": "partnerShow"
+        "link": "MyAnnounce"
       },
       {
         "label": "구매목록",
         "icon": "myIconBuy3",
-        "link": "partnerShow"
+        "link": "MyPurchaseList"
       },
       {
         "label": "결제관리",

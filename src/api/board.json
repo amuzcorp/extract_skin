@@ -10,7 +10,8 @@
     "date": "2021-01-01",
     "expiration": "2022-01-31",
     "review": true,
-    "offer": "5"
+    "offer": "5",
+    "form": "AI"
   },
   {
     "type": "purchase",
@@ -23,7 +24,8 @@
     "date": "2021-01-01",
     "expiration": "2022-01-31",
     "review": false,
-    "offer": "7"
+    "offer": "7",
+    "form": "AI"
   },
   {
     "type": "purchase",
@@ -36,7 +38,8 @@
     "date": "2021-01-01",
     "expiration": "2022-01-31",
     "review": true,
-    "offer": "2"
+    "offer": "2",
+    "form": "AI"
   },
   {
     "type": "purchase",
@@ -49,7 +52,8 @@
     "date": "2021-01-01",
     "expiration": "2022-01-31",
     "review": true,
-    "offer": "12"
+    "offer": "12",
+    "form": "AI"
   },
   {
     "type": "purchase",
@@ -62,7 +66,8 @@
     "date": "2021-01-01",
     "expiration": "2022-01-31",
     "review": true,
-    "offer": "17"
+    "offer": "17",
+    "form": "AI"
   },
   {
     "type": "purchase",
@@ -75,7 +80,8 @@
     "date": "2021-01-01",
     "expiration": "2022-01-31",
     "review": true,
-    "offer": "4"
+    "offer": "4",
+    "form": "AI"
   },
   {
     "type": "purchase",
@@ -88,7 +94,8 @@
     "date": "2021-01-01",
     "expiration": "2022-01-31",
     "review": true,
-    "offer": "2"
+    "offer": "2",
+    "form": "AI"
   },
   {
     "type": "purchase",
@@ -101,6 +108,7 @@
     "date": "2021-01-01",
     "expiration": "2022-01-31",
     "review": true,
-    "offer": "9"
+    "offer": "9",
+    "form": "AI"
   }
 ]

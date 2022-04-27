@@ -93,6 +93,9 @@ a:hover {
 .mb-25 {
   margin-bottom: 25px;
 }
+.mb-100 {
+  margin-bottom: 100px;
+}
 @media (min-width: 1400px) {
   .ex-container .container-xxl,
   .ex-container .container-xl,

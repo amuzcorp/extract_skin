@@ -52,6 +52,9 @@ export default {
 };
 </script>
 <style>
+.mypage-nav {
+  margin-bottom: 106px;
+}
 .nav-list h2 {
   padding: 12px 0 12px 37px;
   color: #202427;
@@ -115,6 +118,7 @@ export default {
   font-size: 1rem;
   font-weight: 600;
 }
+.my-profile:hover,
 .my-profile {
   display: block;
   margin-bottom: 20px;

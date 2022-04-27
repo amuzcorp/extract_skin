@@ -143,6 +143,16 @@ const routes = [
         name: "MyPurchase",
         component: () => import("./pages/mypage/purchase"),
       },
+      {
+        path: "announce",
+        name: "MyAnnounce",
+        component: () => import("./pages/mypage/announce"),
+      },
+      {
+        path: "list",
+        name: "MyPurchaseList",
+        component: () => import("./pages/mypage/purchaseList"),
+      },
     ],
   },
 ];
