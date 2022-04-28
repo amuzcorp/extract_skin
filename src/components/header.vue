@@ -385,8 +385,8 @@
     <b-modal id="logout-modal" ref="logout-modal" hide-footer hide-header>
       <h2>엑기스에서 로그아웃 하려고 합니다.<br />로그아웃하시겠습니까?</h2>
       <div class="logout-modal-footer">
-        <a href="#" @click="hideModal" class="def-btn-off def-btn">취소</a>
-        <a href="#" class="def-btn-on def-btn">로그아웃</a>
+        <a @click="hideModal" class="def-btn-off def-btn">취소</a>
+        <a class="def-btn-on def-btn">로그아웃</a>
       </div>
     </b-modal>
   </div>

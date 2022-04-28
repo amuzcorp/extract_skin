@@ -1,0 +1,47 @@
+[
+  {
+    "review": false,
+    "label": "홍길동 모델 전집 팝니다. 둘러보세요!",
+    "thumb": "my_review_1",
+    "price": "25,000원",
+    "date": "",
+    "star": 0,
+    "dscript": ""
+  },
+  {
+    "review": false,
+    "label": "메이크업 화보 전문 잡지 팝니다.",
+    "thumb": "my_review_2",
+    "price": "25,000원",
+    "date": "2022-01-01",
+    "star": 0,
+    "dscript": ""
+  },
+  {
+    "review": true,
+    "label": "홍길동 모델 전집 팝니다. 둘러보세요!",
+    "thumb": "my_review_3",
+    "price": "25,000원",
+    "date": "2022-01-01",
+    "star": 5,
+    "dscript": "생각했던 퀄리티보다 훨씬 좋아서 의외였습니다. 가격대비 상당히 좋은 가성비 가지고있으며 양 또한"
+  },
+  {
+    "review": true,
+    "label": "마크제이콥스 화보 팝니다.",
+    "thumb": "my_review_4",
+    "price": "25,000원",
+    "date": "2022-01-01",
+    "star": 5,
+    "dscript": "생각했던 퀄리티보다 훨씬 좋아서 의외였습니다. 가격대비 상당히 좋은 가성비 가지고있으며 양 또한"
+  },
+  {
+    "review": true,
+    "label": "4k 고화질 화보 팔아봐요!",
+    "thumb": "my_review_1",
+    "price": "25,000원",
+    "date": "2022-01-01",
+    "star": 4,
+    "dscript": "생각했던 퀄리티보다 훨씬 좋아서 의외였습니다. 가격대비 상당히 좋은 가성비 가지고있으며 양 또한"
+  }
+]

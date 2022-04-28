@@ -8,7 +8,7 @@
     "price": "25,000",
     "writer": "cwalwall",
     "date": "2021-01-01",
-    "expiration": "2022-01-31",
+    "expiration": "2022-05-31",
     "review": true,
     "offer": "5",
     "form": "AI"
@@ -22,7 +22,7 @@
     "price": "25,000",
     "writer": "cwalwall",
     "date": "2021-01-01",
-    "expiration": "2022-01-31",
+    "expiration": "2022-05-31",
     "review": false,
     "offer": "7",
     "form": "AI"
@@ -36,7 +36,7 @@
     "price": "25,000",
     "writer": "cwalwall",
     "date": "2021-01-01",
-    "expiration": "2022-01-31",
+    "expiration": "2022-05-31",
     "review": true,
     "offer": "2",
     "form": "AI"

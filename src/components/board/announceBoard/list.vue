@@ -42,7 +42,6 @@
           <td>
             <b-form-checkbox
               :id="'all-check-' + i"
-              v-model="all"
               :name="'checkbox-' + i"
               :value="'accepted' + i"
               :unchecked-value="'not_accepted' + i"

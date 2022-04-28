@@ -933,6 +933,7 @@ export default {
   display: flex;
 }
 .card-modal-footer .def-btn {
+  width: 100%;
   height: 50px;
   flex-grow: 1;
   margin-right: 10px;

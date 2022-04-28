@@ -93,6 +93,9 @@ a:hover {
 .mb-25 {
   margin-bottom: 25px;
 }
+.mb-50 {
+  margin-bottom: 50px;
+}
 .mb-100 {
   margin-bottom: 100px;
 }

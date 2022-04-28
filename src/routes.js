@@ -141,17 +141,42 @@ const routes = [
       {
         path: "purchase",
         name: "MyPurchase",
-        component: () => import("./pages/mypage/purchase"),
+        component: () => import("./pages/mypage/MyPurchase/purchase"),
       },
       {
         path: "announce",
         name: "MyAnnounce",
-        component: () => import("./pages/mypage/announce"),
+        component: () => import("./pages/mypage/MyPurchase/announce"),
       },
       {
         path: "list",
         name: "MyPurchaseList",
-        component: () => import("./pages/mypage/purchaseList"),
+        component: () => import("./pages/mypage/MyPurchase/purchaseList"),
+      },
+      {
+        path: "payment",
+        name: "MyPayment",
+        component: () => import("./pages/mypage/MyPurchase/payment"),
+      },
+      {
+        path: "reviews",
+        name: "MyReview",
+        component: () => import("./pages/mypage/MyPurchase/review"),
+      },
+      {
+        path: "like",
+        name: "MyLikeList",
+        component: () => import("./pages/mypage/MyPurchase/like-list"),
+      },
+      {
+        path: "coupon",
+        name: "MyCouponList",
+        component: () => import("./pages/mypage/MyPurchase/coupon"),
+      },
+      {
+        path: "partner",
+        name: "MyPartner",
+        component: () => import("./pages/mypage/MyPartner/partner"),
       },
     ],
   },

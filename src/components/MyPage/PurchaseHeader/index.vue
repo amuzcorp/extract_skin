@@ -147,7 +147,7 @@ export default {
   opacity: 1;
 }
 .my-purchase-card:hover .my-purchase-card-header .img {
-  background-color: rgba(241, 238, 253, 0.8);
+  background-color: rgba(241, 238, 253, 0.6);
 }
 .my-purchase-card:hover .my-purchase-card-header .img svg {
   fill: #fff;

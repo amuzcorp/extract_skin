@@ -1,0 +1,26 @@
+[
+  {
+    "state": true,
+    "label": "Any plus 하나은행 (4892)",
+    "name": "홍길동",
+    "thumb": "my_card",
+    "date": "2021-01-01",
+    "expiration": "2022-05-31"
+  },
+  {
+    "state": false,
+    "label": "Any plus 하나은행 (4892)",
+    "name": "홍길동",
+    "thumb": "my_card",
+    "date": "2021-01-01",
+    "expiration": "2022-05-31"
+  },
+  {
+    "state": false,
+    "label": "Any plus 하나은행 (4892)",
+    "name": "홍길동",
+    "thumb": "my_card",
+    "date": "2021-01-01",
+    "expiration": "2022-05-31"
+  }
+]

@@ -1186,7 +1186,7 @@ export default {
   margin-top: 20%;
 }
 #war-modal-comp .modal-dialog {
-  max-width: 410px;
+  max-width: 330px;
 }
 .main-slider-con .slick-arrow {
   z-index: 10;

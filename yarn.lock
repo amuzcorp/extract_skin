@@ -3102,6 +3102,11 @@
   "resolved" "https://registry.npmjs.org/chardet/-/chardet-0.7.0.tgz"
   "version" "0.7.0"
 
+"chart.js@^3.7.0", "chart.js@^3.7.1":
+  "integrity" "sha512-8knRegQLFnPQAheZV8MjxIXc5gQEfDFD897BJgv/klO/vtIyFFmgMXrNfgrXpbTr/XbTturxRgxIXx/Y+ASJBA=="
+  "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-3.7.1.tgz"
+  "version" "3.7.1"
+
 "chokidar@^2.1.8":
   "integrity" "sha512-ZmZUazfOzf0Nve7duiCKD23PFSCs4JPoYyccjUFF3aQkQadqBhfzhjkwBH2mNOG9cTBwhamM37EIsIkZw3nRgg=="
   "resolved" "https://registry.npmjs.org/chokidar/-/chokidar-2.1.8.tgz"
@@ -10529,6 +10534,11 @@
   "resolved" "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz"
   "version" "1.1.2"
 
+"vue-chartjs@^4.0.7":
+  "integrity" "sha512-nlUIyZx/+83BlA+b7Q9JTV96IXweb+atiod2ciYiJyoaGgJ7nBAzt/7L9gugW8gpiqeYqS3ogAlE+y9YyhkTzw=="
+  "resolved" "https://registry.npmjs.org/vue-chartjs/-/vue-chartjs-4.0.7.tgz"
+  "version" "4.0.7"
+
 "vue-client-only@^2.0.0":
   "integrity" "sha512-vKl1skEKn8EK9f8P2ZzhRnuaRHLHrlt1sbRmazlvsx6EiC3A8oWF8YCBrMJzoN+W3OnElwIGbVjsx6/xelY1AA=="
   "resolved" "https://registry.npmjs.org/vue-client-only/-/vue-client-only-2.1.0.tgz"
@@ -10650,7 +10660,7 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2 || ^3.2.13", "vue@^2.0.0", "vue@^2.3.3", "vue@^2.5.18", "vue@^2.6.10", "vue@^2.6.12", "vue@^2.6.14":
+"vue@^2 || ^3.2.13", "vue@^2.0.0", "vue@^2.3.3", "vue@^2.5.18", "vue@^2.6.10", "vue@^2.6.12", "vue@^2.6.14", "vue@^3.0.0-0 || ^2.6.0":
   "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   "version" "2.6.14"

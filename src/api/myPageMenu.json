@@ -21,22 +21,22 @@
       {
         "label": "결제관리",
         "icon": "myIconBuy4",
-        "link": "partnerShow"
+        "link": "MyPayment"
       },
       {
         "label": "리뷰작성",
         "icon": "myIconBuy5",
-        "link": "partnerShow"
+        "link": "MyReview"
       },
       {
         "label": "찜목록",
         "icon": "myIconBuy6",
-        "link": "partnerShow"
+        "link": "MyLikeList"
       },
       {
         "label": "보유쿠폰",
         "icon": "myIconBuy7",
-        "link": "partnerShow"
+        "link": "MyCouponList"
       }
     ]
   },
@@ -47,7 +47,7 @@
       {
         "label": "파트너스활동",
         "icon": "myIconPartner1",
-        "link": "partnerShow"
+        "link": "MyPartner"
       }
     ]
   },
