@@ -31,7 +31,7 @@
         </tr>
       </thead>
       <!-- 있을 경우 -->
-      <tbody>
+      <!-- <tbody>
         <tr v-for="(item, i) in this.boardList" :key="i">
           <td>
             <div class="td-inner">{{ item.date }}</div>
@@ -159,15 +159,15 @@
           />
         </svg>
       </div>
-    </div>
+    </div> -->
 
-    <!-- 없을 경우 -->
-    <!-- <tr>
+      <!-- 없을 경우 -->
+      <tr>
         <td colspan="7" class="not-txt">
           구매목록 및 재 다운로드 파일이 없습니다.
         </td>
       </tr>
-    </table> -->
+    </table>
 
     <b-modal id="war-modal" ref="war-modal" hide-footer hide-header>
       <h2>해당 파일을 신고하시겠습니까?</h2>
@@ -239,6 +239,14 @@ export default {
 };
 </script>
 <style>
+.not-txt {
+  padding: 60px 0;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+}
+
 /* Add Purchase List */
 .purchase-list-board tbody tr td .td-inner .warning-btn svg {
   width: 18px;

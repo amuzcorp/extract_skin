@@ -37,6 +37,7 @@
           <th>받은제안</th>
         </tr>
       </thead>
+      <!-- 내 공고가 있을 경우 -->
       <tbody>
         <tr v-for="(item, i) in this.boardList" :key="i">
           <td>
@@ -130,6 +131,12 @@
         </svg>
       </div>
     </div>
+
+    <!-- 공고가 없을 경우 -->
+    <!-- <tr>
+        <td colspan="6" class="not-txt">등록된 공고가 없습니다.</td>
+      </tr>
+    </table> -->
   </div>
 </template>
 <script>
@@ -163,6 +170,13 @@ export default {
 };
 </script>
 <style>
+.not-txt {
+  padding: 60px 0;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
 /* announce */
 .announce-board .announce-header {
   width: 100%;

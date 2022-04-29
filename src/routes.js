@@ -178,6 +178,31 @@ const routes = [
         name: "MyPartner",
         component: () => import("./pages/mypage/MyPartner/partner"),
       },
+      {
+        path: "sale",
+        name: "MySaleInfo",
+        component: () => import("./pages/mypage/MySale/sale-info"),
+      },
+      {
+        path: "withdraw",
+        name: "MyWithdraw",
+        component: () => import("./pages/mypage/MySale/withdraw"),
+      },
+      {
+        path: "history",
+        name: "MySaleHistory",
+        component: () => import("./pages/mypage/MySale/sale-history"),
+      },
+      {
+        path: "product",
+        name: "MyProduct",
+        component: () => import("./pages/mypage/MySale/product"),
+      },
+      {
+        path: "sale-review",
+        name: "MySaleReview",
+        component: () => import("./pages/mypage/MySale/review"),
+      },
     ],
   },
 ];

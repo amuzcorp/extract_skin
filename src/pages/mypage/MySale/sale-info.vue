@@ -1,28 +1,22 @@
 <template>
-  <div class="my-partner-warp mb-100">
-    <PartnerHeader />
+  <div class="my-sale-info-warp mb-100">
+    <SalesHeader />
 
-    <div class="my-partner-header mb-50">
-      <h2>실적 리포트</h2>
-      <LineChart />
+    <div class="my-sale-info-header mb-50">
+      <h2>누적판매금액</h2>
+      <LineChart :sale="'true'" />
     </div>
 
-    <div class="my-partner-body mb-50">
-      <div class="my-partner-body-header">
-        <h2>상품별 수익</h2>
-        <div class="my-partner-body-header-select">
-          <b-form-select
-            v-model="cateSelected"
-            :options="cateOptions"
-          ></b-form-select>
-          <b-form-select
-            v-model="revenueSelected"
-            :options="revenueOptions"
-          ></b-form-select>
-        </div>
+    <div class="my-sale-info-body mb-50">
+      <div class="my-sale-info-body-header">
+        <h2>가장많이팔린 상품</h2>
+      </div>
+      <!-- 상품 없을 경우 -->
+      <div class="my-sale-info-body-body box-shadow">
+        판매된 상품이 없습니다.
       </div>
       <!-- 상품 있을 경우 -->
-      <div class="mypartner-body-body">
+      <!--<div class="mypartner-body-body">
         <div class="revenue-card-list">
           <b-row>
             <b-col cols="3" v-for="(item, i) in revenueList" :key="i">
@@ -57,53 +51,30 @@
               /></svg
           ></b-button>
         </div>
-      </div>
-
-      <!-- 상품 없을 경우 -->
-      <!-- <div class="my-partner-body-body box-shadow">
-        파트너스 수익 상품이 없습니다.
       </div> -->
     </div>
 
-    <div class="my-partner-footer mb-50">
-      <h2>파트너스 활동 상품</h2>
-      <!-- 제품 8개 (더보기 클릭 시 추가)  -->
-      <ProductList
-        :moreBtn="false"
-        :breadcrumbs="false"
-        :select="false"
-        :cols="3"
-      />
+    <div class="my-sale-info-footer">
+      <h2>상품 누적판매금액</h2>
+      <!-- 상품 없을 경우 -->
+      <div class="my-sale-info-body-body box-shadow">
+        판매된 상품이 없습니다.
+      </div>
     </div>
   </div>
 </template>
 <script>
-import PartnerHeader from "@/components/MyPage/PartnerHeader/index.vue";
+import SalesHeader from "@/components/MyPage/SalesHeader/index.vue";
 import LineChart from "@/components/chartjs/partnerLineChart.vue";
-import ProductList from "@/components/product/product-list.vue";
-import prodList from "@/api/product.json";
 
 export default {
-  name: "my-partner-skin",
+  name: "my-sale-info-skin",
   components: {
-    PartnerHeader,
+    SalesHeader,
     LineChart,
-    ProductList,
   },
   data() {
     return {
-      cateSelected: null,
-      cateOptions: [
-        { value: null, text: "카테고리" },
-        { value: "design", text: "디자인" },
-        { value: "font", text: "폰트" },
-      ],
-      revenueSelected: null,
-      revenueOptions: [
-        { value: null, text: "높은수익순" },
-        { value: "rowRevenue", text: "낮은수익순" },
-      ],
-      prodList,
       revenueList: [
         {
           label: "회사소개서 양식 팝니다.",
@@ -136,22 +107,22 @@ export default {
 };
 </script>
 <style>
-.my-partner-warp h2 {
+.my-sale-info-warp h2 {
   margin-bottom: 15px;
   color: #333333;
   font-size: 1.2rem;
   font-weight: 500;
 }
-.my-partner-body-header {
+.my-sale-info-body-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 15px;
 }
-.my-partner-body-header h2 {
+.my-sale-info-body-header h2 {
   margin-bottom: 0;
 }
-.my-partner-body-header .custom-select {
+.my-sale-info-body-header .custom-select {
   min-width: 143px;
   height: 30px;
   margin-left: 10px;
@@ -162,7 +133,7 @@ export default {
   border: 1px solid #d5d5d5;
   border-radius: 6px;
 }
-.my-partner-body-body {
+.my-sale-info-body-body {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -172,7 +143,7 @@ export default {
   font-weight: 400;
   border-radius: 10px;
 }
-.my-partner-footer .vue-slick-info h2 {
+.my-sale-info-footer .vue-slick-info h2 {
   color: #333333;
   font-size: 0.9rem;
   font-weight: 400;
@@ -218,7 +189,7 @@ export default {
   text-align: center;
 }
 
-.my-partner-warp .list-body.add-more-btn {
+.my-sale-info-warp .list-body.add-more-btn {
   margin-bottom: 7px;
 }
 </style>

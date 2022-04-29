@@ -13,6 +13,7 @@
           >
         </div>
       </div>
+      <!-- 있을 경우 -->
       <div class="coupon-list">
         <a class="list-item" v-for="(item, i) in couponList" :key="i">
           <img
@@ -38,6 +39,11 @@
         </ul>
       </div>
 
+      <!-- 없을 경우 -->
+      <!-- <div class="coupon-list">
+        <div class="not-txt">보유 쿠폰이 없습니다.</div>
+      </div>
+
       <div class="info">
         <h2>쿠폰안내</h2>
         <ul>
@@ -51,7 +57,7 @@
             유효기간이 지난 쿠폰은 주문 취소 시에 재사용 할 수 없습니다.
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
 
     <b-modal id="coupon-modal" ref="coupon-modal" hide-footer hide-header>
@@ -98,6 +104,13 @@ export default {
 };
 </script>
 <style>
+.not-txt {
+  padding: 60px 0;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+}
 /* Modal */
 #coupon-modal {
   margin-top: 15%;

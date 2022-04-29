@@ -18,6 +18,7 @@
       </b-row>
     </div>
 
+    <!-- 있을 경우 -->
     <div class="review-list-wrap">
       <div
         v-for="(item, i) in this.boardList"
@@ -167,6 +168,9 @@
         </svg>
       </div>
     </div>
+
+    <!-- 없을 경우 -->
+    <!-- <div class="not-txt">구매한 상품이 없습니다.</div> -->
   </div>
 </template>
 <script>
@@ -203,6 +207,14 @@ export default {
 };
 </script>
 <style>
+.not-txt {
+  padding: 60px 0;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+}
+
 .review-list-wrap .review-write-edit-box {
   height: 0;
   padding: 0;

@@ -2,6 +2,7 @@
   <div class="my-like-wrap mb-100">
     <MyPurchaseHeader />
 
+    <!-- 있을 경우 -->
     <!-- 마이페이지 찜목록 제품 12개 (더보기 클릭 시 추가)  -->
     <ProdLikeList :productList="prodList" />
 
@@ -22,6 +23,9 @@
           /></svg
       ></b-button>
     </div>
+
+    <!-- 없을 경우 -->
+    <!-- <div class="not-txt">찜한 상품이 없습니다.</div> -->
   </div>
 </template>
 <script>
@@ -43,6 +47,13 @@ export default {
 };
 </script>
 <style>
+.not-txt {
+  padding: 60px 0;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+}
 .my-like-wrap .list-body,
 .my-like-wrap .prod-list {
   margin-bottom: 0;

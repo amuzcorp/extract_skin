@@ -18,6 +18,7 @@
                 @click="cardSelected(idx)"
                 v-b-modal.add-card-modal
               >
+                <!-- 있을 경우 -->
                 <template v-if="card.thumb">
                   <img
                     :src="require(`@/assets/images/${card.thumb}.png`)"
@@ -25,6 +26,9 @@
                   />
                   <h2>{{ card.label }}</h2>
                 </template>
+                <!-- 없을 경우 -->
+                <!-- <img class="img-non" src="@/assets/images/card_02.png" />
+                <h2 class="img-non">등록된 카드가 없습니다.</h2> -->
               </a>
             </VueSlickCarousel>
           </div>

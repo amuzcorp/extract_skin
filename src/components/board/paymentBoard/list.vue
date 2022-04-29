@@ -13,6 +13,7 @@
         </tr>
       </thead>
       <tbody>
+        <!-- 있을 경우 -->
         <tr v-for="(item, i) in this.boardList" :key="i">
           <td>
             <b-form-radio
@@ -61,6 +62,11 @@
             </div>
           </td>
         </tr>
+
+        <!-- 없을 경우 -->
+        <!-- <tr>
+          <td colspan="7" class="not-txt">등록된 카드가 없습니다.</td>
+        </tr> -->
       </tbody>
 
       <b-modal
@@ -97,6 +103,13 @@ export default {
 };
 </script>
 <style>
+.def-board tbody tr td.not-txt {
+  padding: 60px 0;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
 /* Modal */
 #delete-card-modal .modal-md {
   max-width: 400px;

@@ -58,27 +58,27 @@
       {
         "label": "나의 판매정보",
         "icon": "myIconSell1",
-        "link": "partnerShow"
+        "link": "MySaleInfo"
       },
       {
         "label": "출금내역",
         "icon": "myIconSell2",
-        "link": "partnerShow"
+        "link": "MyWithdraw"
       },
       {
         "label": "판매내역",
         "icon": "myIconSell3",
-        "link": "partnerShow"
+        "link": "MySaleHistory"
       },
       {
         "label": "내 상품",
         "icon": "myIconSell4",
-        "link": "partnerShow"
+        "link": "MyProduct"
       },
       {
         "label": "리뷰보기",
         "icon": "myIconSell5",
-        "link": "partnerShow"
+        "link": "MySaleReview"
       }
     ]
   },

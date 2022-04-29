@@ -12,6 +12,7 @@
           <th>리뷰작성</th>
         </tr>
       </thead>
+      <!-- 구매파일 있을 경우 -->
       <tbody>
         <tr v-for="(item, i) in this.boardList" :key="i">
           <td>
@@ -105,6 +106,12 @@
         </tr>
       </tbody>
     </table>
+
+    <!-- 구매파일 없을 경우 -->
+    <!-- <tr>
+        <td colspan="7" class="not-txt">최근 구매파일이 없습니다.</td>
+      </tr> 
+    </table>-->
   </div>
 </template>
 <script>
@@ -119,6 +126,13 @@ export default {
 };
 </script>
 <style>
+.not-txt {
+  padding: 60px 0;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
 .board-header {
   display: flex;
   justify-content: space-between;
