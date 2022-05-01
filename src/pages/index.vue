@@ -114,64 +114,136 @@
                   <img :src="pdfBook" />
                   <span>PDF 책</span>
                 </router-link>
-                <a href="#">
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'report' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="report" />
                   <span>보고서</span>
-                </a>
-                <a href="#">
+                </router-link>
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'start' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="start" />
                   <span>스타트업</span>
-                </a>
-                <a href="#">
+                </router-link>
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'drawing' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="drawing" />
                   <span>설계/도면</span>
-                </a>
+                </router-link>
               </div>
             </b-col>
             <b-col cols="6" class="p-0">
               <div class="visual-category-inner">
-                <a href="#">
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'diary' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="diary" />
                   <span>디지털문구</span>
-                </a>
-                <a href="#">
+                </router-link>
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'music' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="music" />
                   <span>브금</span>
-                </a>
-                <a href="#">
+                </router-link>
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'model' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="model" />
                   <span>모델/초상화</span>
-                </a>
-                <a href="#">
+                </router-link>
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'workbook' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="workbook" />
                   <span>문제집/족보</span>
-                </a>
+                </router-link>
               </div> </b-col
             ><b-col cols="6" class="p-0">
               <div class="visual-category-inner">
-                <a href="#">
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'pictorial' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="pictorial" />
                   <span>화보</span>
-                </a>
-                <a href="#">
+                </router-link>
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'font' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="font" />
                   <span>폰트</span>
-                </a>
-                <a href="#">
+                </router-link>
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'program' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="program" />
                   <span>프로그램</span>
-                </a>
-                <a href="#">
+                </router-link>
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'design' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="design" />
                   <span>디자인</span>
-                </a>
+                </router-link>
               </div> </b-col
             ><b-col cols="6" class="p-0">
               <div class="visual-category-inner">
-                <a href="#">
+                <router-link
+                    :to="{
+                    name: 'productList',
+                    params: { categoryId: 'video' },
+                  }"
+                    :bestProdList="this.bestProdList"
+                >
                   <img :src="video" />
                   <span>영상클립</span>
-                </a>
+                </router-link>
               </div>
             </b-col>
           </b-row>
@@ -347,23 +419,28 @@
         <h2 class="contents-tit mb-15">핫한 카테고리</h2>
         <div class="vue-slick-track">
           <VueSlickCarousel v-bind="bestSettings" v-if="hotProdList.length > 0">
-            <a
-              href="#"
-              class="vue-slick-item"
-              v-for="(item, i) in this.hotProdList"
-              :key="i"
-            >
-              <div
-                class="vue-slick-img"
-                v-bind:style="{
+            <template
+                v-for="(item, i) in this.hotProdList">
+              <router-link
+                  :key="i"
+                  :to="{
+                  name: 'productList',
+                  params: { categoryId: item.id },
+                }"
+                  class="vue-slick-item"
+              >
+                <div
+                    class="vue-slick-img"
+                    v-bind:style="{
                   backgroundImage:
                     'url(' + require(`@/assets/images/${item.thumb}.png`) + ')',
                 }"
-              ></div>
-              <div class="vue-slick-info">
-                <h2>{{ item.title }}</h2>
-              </div>
-            </a>
+                ></div>
+                <div class="vue-slick-info">
+                  <h2>{{ item.title }}</h2>
+                </div>
+              </router-link>
+            </template>
           </VueSlickCarousel>
         </div>
       </div>

@@ -7,8 +7,7 @@
         </div>
         <div class="txt">
           <h2>
-            상품 구매 또는 결제수단 이용 시<br />제 3자 무단 사용을 방지하기
-            위해 <b>본인인증</b>이 필요합니다.
+            정보를 안전하게 보호하기 위해<br /> <b>본인인증</b>이 필요합니다.
           </h2>
           <p>
             * 타인의 개인정보를 도용할 경우 관계법에 의해 처벌될 수 있습니다.
@@ -32,85 +31,85 @@
         <h3>
           본인인증 안내
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-exclamation-circle"
-            viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-exclamation-circle"
+              viewBox="0 0 16 16"
           >
             <path
-              d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
             />
             <path
-              d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
             />
           </svg>
         </h3>
         <b-input-group>
           <b-form-input
-            type="text"
-            placeholder="이름입력"
-            v-model="name"
+              type="text"
+              placeholder="이름입력"
+              v-model="name"
           ></b-form-input>
         </b-input-group>
         <b-input-group class="register-group">
           <b-form-input
-            type="text"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            maxlength="6"
-            v-model="firstRRN"
-            class="tf_register"
-            placeholder="주민등록번호 앞6자리"
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              maxlength="6"
+              v-model="firstRRN"
+              class="tf_register"
+              placeholder="주민등록번호 앞6자리"
           ></b-form-input>
           <span>-</span>
           <b-form-input
-            type="text"
-            pattern="[0-9]*"
-            inputmode="numeric"
-            maxlength="1"
-            v-model="secondRRN"
-            class="fr_register"
-            placeholder=""
+              type="text"
+              pattern="[0-9]*"
+              inputmode="numeric"
+              maxlength="1"
+              v-model="secondRRN"
+              class="fr_register"
+              placeholder=""
           ></b-form-input>
           <span class="dot">••••••</span>
         </b-input-group>
 
         <b-form-group class="phone-radio-group" v-slot="{ ariaDescribedby }">
           <b-form-radio-group
-            id="phone-btns"
-            v-model="selected"
-            :options="options"
-            :aria-describedby="ariaDescribedby"
-            name="phone-radios-btn"
-            buttons
+              id="phone-btns"
+              v-model="selected"
+              :options="options"
+              :aria-describedby="ariaDescribedby"
+              name="phone-radios-btn"
+              buttons
           ></b-form-radio-group>
         </b-form-group>
 
         <div class="check-list-group">
           <a
-            class="allCheck"
-            @click="allCheck"
-            :class="{ all: isAll, all: checkSelected.length > 3 }"
-            ><span></span>휴대전화 인증 전체 동의</a
+              class="allCheck"
+              @click="allCheck"
+              :class="{ all: isAll, all: checkSelected.length > 3 }"
+          ><span></span>휴대전화 인증 전체 동의</a
           >
           <b-form-group v-slot="{ certCheckList }">
             <b-form-checkbox-group
-              id="cert-agree-group"
-              v-model="checkSelected"
-              :options="checkList"
-              :aria-describedby="certCheckList"
-              name="cert-agree"
+                id="cert-agree-group"
+                v-model="checkSelected"
+                :options="checkList"
+                :aria-describedby="certCheckList"
+                name="cert-agree"
             ></b-form-checkbox-group>
           </b-form-group>
         </div>
 
         <div class="cert-request-input">
           <b-form-input
-            type="text"
-            placeholder="휴대전화번호-없이입력"
-            v-model="phoneNum"
+              type="text"
+              placeholder="휴대전화번호-없이입력"
+              v-model="phoneNum"
           ></b-form-input>
           <b-button class="request-btn">인증요청</b-button>
         </div>
@@ -118,10 +117,10 @@
       <div class="cert-modal-footer">
         <a href="#" @click="hideModal" class="def-btn-off def-btn">취소</a>
         <router-link
-          :to="{
-            name: 'payList',
+            :to="{
+            name: 'agreeAlertList',
           }"
-          class="def-btn-on def-btn"
+            class="def-btn-on def-btn"
         >
           확인
         </router-link>
@@ -372,11 +371,11 @@ export default {
   height: 15px;
   margin-right: 5px;
   background: center / contain no-repeat
-    url("@/assets/images/icon_check_off.png");
+  url("@/assets/images/icon_check_off.png");
 }
 .check-list-group .allCheck.all span {
   background: center / contain no-repeat
-    url("@/assets/images/icon_check_on.png");
+  url("@/assets/images/icon_check_on.png");
 }
 .check-list-group .allCheck:hover,
 #cert-agree-group label:hover {
@@ -410,7 +409,7 @@ export default {
   width: 15px;
   height: 15px;
   background: center / contain no-repeat
-    url("@/assets/images/icon_check_off.png");
+  url("@/assets/images/icon_check_off.png");
   border-radius: 100%;
   cursor: pointer;
 }
@@ -424,7 +423,7 @@ export default {
   width: 15px;
   height: 15px;
   background: center / contain no-repeat
-    url("@/assets/images/icon_check_on.png");
+  url("@/assets/images/icon_check_on.png");
   border-radius: 100%;
 }
 #cert-agree-group .custom-control-label span {

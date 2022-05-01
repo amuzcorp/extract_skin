@@ -2,7 +2,7 @@
   <span
     :class="{
       'has-children': cate.children.length > 0,
-      show: isShow,
+      show: isShow
     }"
     @click="isClickNav()"
   >

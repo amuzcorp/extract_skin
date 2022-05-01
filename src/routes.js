@@ -17,14 +17,36 @@ const routes = [
         component: () => import("./pages/product/list"),
       },
       {
-        path: "show/:productName?",
+        path: "show/:productId?",
         name: "productShow",
         component: () => import("./pages/product/show"),
       },
       {
         path: "create",
-        name: "productCreate",
-        component: () => import("./pages/product/create"),
+        name: "productCreateIndex",
+        component: () => import("./pages/product/productCreate"),
+        children:[
+          {
+            path: "",
+            name: "productCreate",
+            component: () => import("./pages/product/step/createInformation")
+          },
+          {
+            path: "agreement",
+            name: "createAgreement",
+            component: () => import("./pages/product/step/createAgreements"),
+          },
+          {
+            path: "certification",
+            name: "createCertification",
+            component: () => import("./pages/product/step/createCertification"),
+          },
+          {
+            path: "forms",
+            name: "productCreateForms",
+            component: () => import("./pages/product/step/createForms"),
+          },
+        ],
       },
     ],
   },
@@ -202,6 +224,21 @@ const routes = [
         path: "sale-review",
         name: "MySaleReview",
         component: () => import("./pages/mypage/MySale/review"),
+      },
+      {
+        path: "agree-alert",
+        name: "agreeAlert",
+        component: () => import("./pages/mypage/MyInfo/agree-alert"),
+      },
+      {
+        path: "agree-alert-list",
+        name: "agreeAlertList",
+        component: () => import("./pages/mypage/MyInfo/agree-alert-list"),
+      },
+      {
+        path: "leave-user",
+        name: "leaveUser",
+        component: () => import("./pages/mypage/MyInfo/leave-user"),
       },
     ],
   },

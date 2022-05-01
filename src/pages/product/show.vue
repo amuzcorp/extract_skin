@@ -4,18 +4,68 @@
       <b-row class="prod-view-body">
         <b-col cols="5">
           <div class="img-col">
-            <VueSlickCarousel
+            <div class="slider-wrap">
+              <template v-if="oProduct.categoryId === 'music' || oProduct.categoryId === 'video-clip'">
+              <span class="backdrop">
+              </span>
+              <div class="audio-player">
+                <b-icon-play-circle />
+                <div>
+                  <div class="text-start">
+                    <template v-if="oProduct.categoryId === 'music'">
+                      <small>01_비틀즈 레코딩 녹음본 bgm.WAV</small>
+                    </template>
+                    <template v-if="oProduct.categoryId === 'video-clip'">
+                      <small>Ver1_무인도 해변영상.mp4</small>
+                    </template>
+                  </div>
+                  <div class="progress">
+                    <span class="percent"></span>
+                  </div>
+                  <div class="controller">
+                    <small>00:11</small>
+                    <small>00:30</small>
+                  </div>
+                </div>
+              </div>
+              <div class="overlay">
+                <b-button class="open-backdrop">
+                  <template v-if="oProduct.categoryId === 'music'">
+                    구매 전에는 30초 미리듣기만 가능합니다.
+                  </template>
+                  <template v-if="oProduct.categoryId === 'video-clip'">
+                    구매 전에는 30초 미리보기만 가능합니다.
+                  </template>
+
+                  <b-icon-chevron-down size="small" font-scale="0.8" />
+                </b-button>
+              </div>
+              </template>
+              <VueSlickCarousel
               ref="c1"
               :asNavFor="c2"
               :focusOnSelect="true"
               class="main-slider-con"
             >
+                <template v-if="oProduct.categoryId === 'video-clip'">
+                  <div class="main-slider-item position-relative">
+                    <b-embed
+                        type="iframe"
+                        aspect="1by1"
+                        src="https://www.youtube.com/embed/f6zHKR2cXUM"
+                        allowfullscreen
+                    ></b-embed>
+                  </div>
+                </template>
+                <template v-else>
               <div class="main-slider-item">
                 <div
                   class="img"
-                  :style="'background-image: url(' + prodView_01 + ')'"
-                ></div>
+                  :style="{'background-image' : `url(${require('@/assets/images/' + oProduct.thumb + '.png')})`}"
+                >
+                </div>
               </div>
+                </template>
               <div class="main-slider-item">
                 <div
                   class="img"
@@ -47,6 +97,7 @@
                 ></div>
               </div>
             </VueSlickCarousel>
+            </div>
             <VueSlickCarousel
               ref="c2"
               :asNavFor="c1"
@@ -57,7 +108,7 @@
               <div class="nav-slider-item">
                 <div
                   class="img"
-                  :style="'background-image: url(' + prodView_01 + ')'"
+                  :style="{'background-image' : `url(${require('@/assets/images/' + oProduct.thumb + '.png')})`}"
                 ></div>
               </div>
               <div class="nav-slider-item">
@@ -97,7 +148,7 @@
           <div class="info-col">
             <div class="info-header mb-10">
               <ul class="cate-prodNum">
-                <li>디자인</li>
+                <li>{{ oProduct.categoryTitle }}</li>
                 <!-- 내 제품일 경우 -->
                 <li>상품고유번호 : 92822434</li>
                 <!-- // 내 제품일 경우 -->
@@ -141,8 +192,7 @@
             </div>
             <div class="info-body">
               <h2>
-                사람, 동물, 건물 등 직접 그린 일러스트<br />모음집 괜찮은 가격에
-                팝니다.
+                {{ oProduct.title }}
               </h2>
               <div class="star-con">
                 <star-rating
@@ -155,7 +205,7 @@
                   :rating="4"
                 ></star-rating>
               </div>
-              <h3>₩ 25,000</h3>
+              <h3>₩ {{ oProduct.price }}</h3>
               <ul class="tag-con">
                 <!-- 모델/초상권 -->
                 <li><a class="box-shadow">초상권 계약기간 2년</a></li>
@@ -178,7 +228,7 @@
               </ul>
               <div class="btn-area">
                 <!-- 모델/초상권 -->
-                <div class="check-box box-shadow">
+                <div class="check-box box-shadow" v-if="oProduct.categoryId === 'model'">
                   <b-form-checkbox
                     id="model-checkbox"
                     v-model="modelCheck"
@@ -225,61 +275,65 @@
                 <!-- // 모델/초상권 -->
 
                 <!-- 내 글일 경우 -->
+
+                <template v-if="oProduct.imAuthor === true">
                 <router-link
                   :to="{ name: 'productCreate' }"
                   class="buy-btn box-shadow"
                   >수정하기</router-link
                 >
-                <b-button class="mk-link-btn box-shadow"
-                  >내 상품 목록가기</b-button
-                >
+                <b-button class="mk-link-btn box-shadow">내 상품 목록가기</b-button>
                 <b-button class="mk-link-btn box-shadow">삭제하기</b-button>
-                <!-- // 내 글일 경우 -->
-                <!-- <router-link
-                  :to="{
+                </template>
+                <template v-else>
+                  <!-- // 내 글일 경우 -->
+                  <router-link
+                      :to="{
                     name: 'cert',
                   }"
-                  class="buy-btn box-shadow"
-                >
-                  구매하기
-                </router-link>
-                <b-button class="mk-link-btn box-shadow" v-b-modal.partner-modal
+                      class="buy-btn box-shadow"
+                  >
+                    구매하기
+                  </router-link>
+                  <b-button class="mk-link-btn box-shadow" v-b-modal.partner-modal
                   >판매 링크 생성하기</b-button
-                >
-                <span class="like-btns box-shadow" :class="{ like: isHeart }">
+                  >
+                  <span class="like-btns box-shadow" :class="{ like: isHeart }">
                   <b-button
-                    v-b-modal.like-modal
-                    v-on:click="clickHeart"
-                    class="like-btn bi-heart"
-                    ><svg
+                      v-b-modal.like-modal
+                      v-on:click="clickHeart"
+                      class="like-btn bi-heart"
+                  ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="23"
                       height="23"
                       fill="#121212"
                       class="bi bi-heart"
                       viewBox="0 0 16 16"
-                    >
+                  >
                       <path
-                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
+                          d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
                       />
                     </svg>
                   </b-button>
                   <b-button class="like-btn bi-heart-fill">
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="23"
-                      height="23"
-                      fill="#300474"
-                      class="bi bi-heart-fill"
-                      viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="23"
+                        height="23"
+                        fill="#300474"
+                        class="bi bi-heart-fill"
+                        viewBox="0 0 16 16"
                     >
                       <path
-                        fill-rule="evenodd"
-                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                          fill-rule="evenodd"
+                          d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
                       />
                     </svg>
                   </b-button>
-                </span> -->
+                </span>
+                </template>
+
               </div>
             </div>
           </div>
@@ -838,6 +892,7 @@ import secretUser from "@/assets/images/icon_secret.png";
 import iconAdmin from "@/assets/images/icon_admin_review.png";
 import check from "@/assets/images/icon_check.png";
 import StarRating from "vue-star-rating";
+import productList from "@/api/product.json";
 
 export default {
   name: "productShow",
@@ -847,6 +902,8 @@ export default {
   },
   data() {
     return {
+      productId: 1,
+      productList: productList,
       c1: undefined,
       c2: undefined,
       prodView_01: prodView_01,
@@ -904,7 +961,18 @@ export default {
   mounted() {
     this.c1 = this.$refs.c1;
     this.c2 = this.$refs.c2;
+    this.productId = (typeof this.$route.params.productId !== "undefined" && this.$route.params.productId !== '') ? this.$route.params.productId : 1;
   },
+  computed: {
+    filterProduct(){
+      return this.productList.filter(item => {
+        return parseInt(item.id) === parseInt(this.productId)
+      });
+    },
+    oProduct() {
+      return this.filterProduct[0];
+    }
+  }
 };
 </script>
 <style>
@@ -1627,5 +1695,118 @@ export default {
 }
 .write-list .btn-area button:last-child {
   margin-right: 0;
+}
+
+.slider-wrap{
+  position:relative;
+}
+.slider-wrap .overlay{
+  position:absolute;
+  z-index:100;
+  left:10%;
+  bottom:25px;
+  width:80%;
+}
+.slider-wrap .overlay .open-backdrop{
+  display:block;
+  text-align:center;
+  width:100%;
+  border-radius:10px;
+  border:none;
+  background:rgba(0,0,0,.1);
+  font-size:12px;
+  color:#FFF;
+  padding:15px 0;
+}
+.slider-wrap .backdrop{
+  z-index:90;
+  position:absolute;
+  left:-5px;
+  top:0;
+  right:-5px;
+  bottom:5px;
+  border-radius:10px;
+  background: rgba(0,0,0,.7);
+}
+
+.slider-wrap .audio-player{
+  position:absolute;
+  text-align:center;
+  z-index:95;
+  left:50%;
+  top:50%;
+  font-size:50px;
+  width:100%;
+  max-width:320px;
+  transform:translate(-50%,-50%);
+  color:#FFF;
+}
+
+.slider-wrap .audio-player small{
+  font-size:12px;
+}
+.slider-wrap .audio-player .controller{
+  display:flex;
+  justify-content: space-between;
+}
+.progress{
+  position:relative;
+  background:rgba(255,255,255,.4);
+  height:5px;
+  margin-bottom:20px;
+}
+.progress .percent{
+  position:absolute;
+  left:0;
+  bottom:0;
+  top:0;
+  width:40%;
+  background:#FFF;
+}
+
+.embed-responsive{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+.embed-responsive iframe,
+.embed-responsive video{
+  height:100%;
+  width:100%;
+}
+
+input[type=range]{
+  margin:0;
+  padding:0;
+  width:100%;
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  margin-top: -4px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ccc;
 }
 </style>

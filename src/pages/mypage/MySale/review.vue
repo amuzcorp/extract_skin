@@ -2,7 +2,7 @@
   <div class="my-sale-review-warp mb-100">
     <SalesHeader />
 
-    <WithdrawBoard :boardTit="'출금내역'" />
+    <WithdrawBoard :boardTit="'리뷰 보기'" />
   </div>
 </template>
 <script>

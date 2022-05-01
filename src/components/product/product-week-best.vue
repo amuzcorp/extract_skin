@@ -8,73 +8,76 @@
         v-bind="slideSettings[0]"
         v-if="this.itemList.length > 0"
       >
-        <a
-          v-for="(item, idx) in itemList"
-          :key="idx"
-          href="#"
-          class="vue-slick-item"
+        <template
+            v-for="(item, idx) in itemList"
         >
-          <div class="vue-slick-img">
-            <div class="hover-box">
-              <a href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-heart"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                  />
-                </svg>
-                찜하기
-              </a>
-              <a href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-link-45deg"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                  />
-                  <path
-                    d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                  />
-                </svg>
-                링크복사
-              </a>
-            </div>
-            <div
-              class="img"
-              v-bind:style="{
+          <router-link
+              :key="idx"
+              :to="{ name: 'productShow', params : {'productId' : item.id }}"
+              class="vue-slick-item"
+          >
+            <div class="vue-slick-img">
+              <div class="hover-box">
+                <a href="">
+                  <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-heart"
+                      viewBox="0 0 16 16"
+                  >
+                    <path
+                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
+                    />
+                  </svg>
+                  찜하기
+                </a>
+                <a href="">
+                  <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-link-45deg"
+                      viewBox="0 0 16 16"
+                  >
+                    <path
+                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
+                    />
+                    <path
+                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
+                    />
+                  </svg>
+                  링크복사
+                </a>
+              </div>
+              <div
+                  class="img"
+                  v-bind:style="{
                 backgroundImage:
                   'url(' + require(`@/assets/images/${item.thumb}.png`) + ')',
               }"
-            ></div>
-          </div>
-          <div class="vue-slick-info">
-            <h2>{{ item.title }}</h2>
-            <div class="info-detail">
-              <h3>₩{{ item.price }}</h3>
-              <ul>
-                <icon-slot
-                  :iconName="'star'"
-                  :svgHeight="16"
-                  :svgWidth="16"
-                  :iconColor="'#894DE6'"
-                />
-                <li>{{ item.star }}</li>
-                <li>{{ item.review }}개 후기</li>
-              </ul>
+              ></div>
             </div>
-          </div>
-        </a>
+            <div class="vue-slick-info">
+              <h2>{{ item.title }}</h2>
+              <div class="info-detail">
+                <h3>₩{{ item.price }}</h3>
+                <ul>
+                  <icon-slot
+                      :iconName="'star'"
+                      :svgHeight="16"
+                      :svgWidth="16"
+                      :iconColor="'#894DE6'"
+                  />
+                  <li>{{ item.star }}</li>
+                  <li>{{ item.review }}개 후기</li>
+                </ul>
+              </div>
+            </div>
+          </router-link>
+        </template>
       </VueSlickCarousel>
     </div>
   </div>

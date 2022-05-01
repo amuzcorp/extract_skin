@@ -2,7 +2,7 @@
   <div class="my-prod-warp mb-100">
     <SalesHeader />
 
-    <WithdrawBoard :boardTit="'출금내역'" />
+    <WithdrawBoard :boardTit="'내 상품'" />
   </div>
 </template>
 <script>

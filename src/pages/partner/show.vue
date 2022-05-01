@@ -1,6 +1,6 @@
 <template>
-  <div class="partner-show-wrap">
-    <div class="partner-show-inner">
+  <div class="partner-show-wrap py-5">
+    <div class="partner-show-inner py-5">
       <b-container>
         <div class="img"></div>
         <h2>홍길동님, 가입이 완료되었습니다.</h2>
@@ -23,15 +23,10 @@ export default {
 <style>
 .partner-show-wrap {
   position: relative;
-  height: calc(100vh - 331px);
   text-align: center;
 }
 .partner-show-inner {
-  position: absolute;
-  left: 0;
-  top: 45%;
   width: 100%;
-  transform: translateY(-50%);
 }
 .partner-show-inner .img {
   height: 300px;

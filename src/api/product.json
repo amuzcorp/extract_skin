@@ -10,7 +10,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_01",
-    "myPurchase": true
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "2",
@@ -23,7 +26,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_02",
-    "myPurchase": true
+    "myPurchase": true,
+    "imAuthor": false,
+    "categoryId": "music",
+    "categoryTitle": "오디오"
   },
   {
     "id": "3",
@@ -36,7 +42,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_03",
-    "myPurchase": true
+    "myPurchase": true,
+    "imAuthor": false,
+    "categoryId": "video-clip",
+    "categoryTitle": "비디오"
   },
   {
     "id": "4",
@@ -49,7 +58,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_04",
-    "myPurchase": true
+    "myPurchase": true,
+    "imAuthor": false,
+    "categoryId": "model",
+    "categoryTitle": "모델/초상권"
   },
   {
     "id": "5",
@@ -62,7 +74,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_05",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": false,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "6",
@@ -75,7 +90,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_01",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": false,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "7",
@@ -88,7 +106,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_02",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": false,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "8",
@@ -101,7 +122,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_03",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": false,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "9",
@@ -114,7 +138,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_04",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "10",
@@ -127,7 +154,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_05",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "11",
@@ -137,10 +167,13 @@
     "hot": false,
     "title": "19년~20년 정보처리산업기사 (해답포함) 총 문제집 판매합니다.",
     "price": "25,000",
-    "star": "12",
+    "star": "3",
     "review": "24",
     "thumb": "p_01",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "13",
@@ -153,7 +186,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_02",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "14",
@@ -166,7 +202,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_06",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "15",
@@ -179,7 +218,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_07",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "16",
@@ -192,7 +234,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_08",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "17",
@@ -205,7 +250,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_09",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "18",
@@ -218,7 +266,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_07",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "19",
@@ -231,7 +282,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_08",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "20",
@@ -244,7 +298,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_10",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "21",
@@ -257,7 +314,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_11",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "22",
@@ -270,7 +330,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_12",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "23",
@@ -283,7 +346,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_13",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "24",
@@ -296,7 +362,10 @@
     "star": "5",
     "review": "24",
     "thumb": "p_14",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   },
   {
     "id": "25",
@@ -309,6 +378,9 @@
     "star": "5",
     "review": "24",
     "thumb": "p_10",
-    "myPurchase": false
+    "myPurchase": true,
+    "imAuthor": true,
+    "categoryId": "report",
+    "categoryTitle": "보고서"
   }
 ]
