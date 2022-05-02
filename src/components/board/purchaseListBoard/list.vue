@@ -233,9 +233,7 @@ export default {
       this.$refs["war-modal-comp"].hide();
     },
   },
-  mounted() {
-    console.log(this.today > "2021-2-54");
-  },
+  mounted() {},
 };
 </script>
 <style>

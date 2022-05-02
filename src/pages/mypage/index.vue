@@ -31,5 +31,6 @@ export default {
 }
 .mypage-row .mypage-col {
   flex-grow: 1;
+  overflow: hidden;
 }
 </style>
