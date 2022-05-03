@@ -1,6 +1,6 @@
 <template>
-  <div class="def-board Withdraw-board purchase-list-board">
-    <div class="board-header Withdraw-header">
+  <div class="def-board sale-board purchase-list-board">
+    <div class="board-header sale-header">
       <b-row class="align-items-center">
         <b-col cols="4">
           <h2>{{ boardTit }}</h2>
@@ -20,13 +20,12 @@
     <table>
       <thead>
         <tr>
-          <th>출금일</th>
-          <th>은행</th>
-          <th>계좌번호</th>
-          <th>금액</th>
-          <th>누적출금금액</th>
-          <th>출금가능금액</th>
-          <th>상태</th>
+          <th>판매일</th>
+          <th>상품고유번호</th>
+          <th>상품명</th>
+          <th>판매금액</th>
+          <th>총 누적판매금액</th>
+          <th>계산서 발행요청</th>
         </tr>
       </thead>
       <!-- 있을 경우 -->
@@ -37,10 +36,12 @@
             <div class="td-inner">{{ item.date }}</div>
           </td>
           <td>
-            <div class="td-inner">{{ item.bank }}</div>
+            <div class="td-inner">{{ item.productNum }}</div>
           </td>
           <td>
-            <div class="td-inner">{{ item.bankNum }}</div>
+            <div class="td-inner">
+              <a>{{ item.label }}</a>
+            </div>
           </td>
           <td>
             <div class="td-inner">{{ item.price }}</div>
@@ -49,13 +50,10 @@
             <div class="td-inner">{{ item.amount }}</div>
           </td>
           <td>
-            <div class="td-inner">{{ item.withdraw }}</div>
-          </td>
-          <td>
-            <div v-if="item.value" class="td-inner">{{ item.state }}</div>
-            <div v-else class="td-inner">
-              <span class="not">{{ item.state }}</span>
+            <div v-if="item.bill.name" class="td-inner">
+              <ModalItem :modalList="item.bill" />
             </div>
+            <div v-else class="td-inner">-</div>
           </td>
         </tr>
       </tbody>
@@ -77,10 +75,36 @@
       </ul>
     </div>
 
+    <div class="search-box">
+      <div class="search-group">
+        <b-form-select v-model="filterSelected" :options="filterOptions">
+        </b-form-select>
+        <b-form-input
+          class="search-input"
+          type="search"
+          v-model="filterCriteria"
+          placeholder="검색어를 입력해주세요."
+        >
+        </b-form-input>
+        <svg
+          class="search-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+        >
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"
+          />
+        </svg>
+      </div>
+    </div>
+
     <!-- 없을 경우 -->
     <!--      <tr>-->
     <!--        <td colspan="7" class="not-txt">-->
-    <!--          구매목록 및 재 다운로드 파일이 없습니다.-->
+    <!--          판매내역이 없습니다.-->
     <!--        </td>-->
     <!--      </tr>-->
     <!--    </table>-->
@@ -90,27 +114,33 @@
 import Calendar from "@/components/datePicker/index.vue";
 import pageNext from "@/assets/images/chervon_next.png";
 import pagePrev from "@/assets/images/chervon_prev.png";
+import ModalItem from "@/components/comp-modal.vue";
 
 export default {
-  name: "purchase-list-skin",
+  name: "sale-board-skin",
   props: {
     boardList: { require: false },
     boardTit: { require: false, default: "" },
   },
   components: {
     Calendar,
+    ModalItem,
   },
   data() {
     return {
       pageNext: pageNext,
       pagePrev: pagePrev,
+      filterCriteria: "",
+      filterSelected: null,
+      filterOptions: [
+        { value: null, text: "전체" },
+        { value: "title", text: "제목" },
+      ],
     };
   },
-  methods: {},
-  mounted() {},
 };
 </script>
-<style>
+<style scope>
 .not-txt {
   padding: 60px 0;
   color: #aaaaaa;
@@ -119,21 +149,72 @@ export default {
   text-align: center;
 }
 
-/* Withdraw */
-.Withdraw-header {
+/* 검색 */
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-box .search-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 520px;
+  padding: 10px 20px;
+  border: 1px solid #d5d5d5;
+  border-radius: 14px;
+}
+.search-group .custom-select {
+  min-width: 80px;
+  margin-right: 20px;
+}
+.search-group .search-input {
+  flex-grow: 1;
+  padding: 0 10px;
+}
+.search-group .search-input::placeholder {
+  color: #aaaaaa;
+  font-size: 0.9rem;
+}
+.search-group .custom-select,
+.search-group .search-input {
+  height: 30px;
+  color: #6a707e;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border: 0;
+}
+.search-group .search-input:focus,
+.search-group .custom-select:focus-visible,
+.search-group .custom-select:focus {
+  border-color: #6e3cbc;
+  box-shadow: 0 0 0 0.25rem rgb(110 60 188 / 25%);
+}
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  fill: #6a707e;
+}
+
+/* sale */
+.sale-header {
   width: 100%;
   margin-bottom: 12px;
   display: block;
 }
-.Withdraw-board.def-board table {
+.sale-board.def-board table {
   margin-bottom: 85px;
 }
-.Withdraw-header .date-btn-area {
+.sale-header .date-btn-area {
   display: flex;
   align-items: center;
   justify-content: end;
 }
-.Withdraw-header .date-btn-area .date-btn {
+.sale-header .date-btn-area .date-btn {
   width: auto;
   min-width: 69px;
   max-width: unset;
@@ -148,21 +229,19 @@ export default {
   border-radius: 30px;
   transition: all ease 0.35s;
 }
-.Withdraw-header .date-btn-area .date-btn.active,
-.Withdraw-header .date-btn-area .date-btn:hover {
+.sale-header .date-btn-area .date-btn.active,
+.sale-header .date-btn-area .date-btn:hover {
   color: #6e3cbc;
   border-color: #6e3cbc;
 }
-.Withdraw-board .pagenation {
+.sale-board .pagenation {
   margin-bottom: 50px;
 }
-.Withdraw-board td .not {
-  color: #aaaaaa;
-  transition: all ease 0.35s;
+.sale-board td .bill-info {
+  position: relative;
+  text-decoration: underline;
 }
-.def-board tbody tr:hover .not {
-  color: #6e3cbc;
-}
+
 /* 기존 */
 .board-header h2 {
   color: #333333;
@@ -234,8 +313,12 @@ export default {
 .def-board tbody tr:hover .td-shadow {
   border-color: #6e3cbc;
 }
-.def-board tbody tr:hover td {
+.def-board tbody tr:hover td > .td-inner > a,
+.def-board tbody tr:hover td > .td-inner {
   color: #6e3cbc;
+}
+.def-board tbody tr:hover td .td-inner a .bill-wrap .down {
+  color: #424a5d;
 }
 .def-board tbody tr td .td-inner {
   padding: 10px 0;

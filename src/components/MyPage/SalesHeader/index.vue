@@ -47,7 +47,7 @@
                 :svgWidth="24"
               />
             </div>
-            <router-link :to="{ name: 'MyPurchase' }">
+            <router-link :to="{ name: 'MyWithdrawApplication' }">
               출금하기
               <svg
                 xmlns="http://www.w3.org/2000/svg"

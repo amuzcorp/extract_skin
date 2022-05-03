@@ -78,6 +78,9 @@ a:hover {
 .text-right {
   text-align: right;
 }
+.prl-5 {
+  padding: 0 5px !important;
+}
 .ml-5 {
   margin-left: 5px;
 }
@@ -89,6 +92,9 @@ a:hover {
 }
 .mb-15 {
   margin-bottom: 15px !important;
+}
+.mb-20 {
+  margin-bottom: 20px;
 }
 .mb-25 {
   margin-bottom: 25px;

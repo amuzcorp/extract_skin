@@ -25,11 +25,11 @@ const routes = [
         path: "create",
         name: "productCreateIndex",
         component: () => import("./pages/product/productCreate"),
-        children:[
+        children: [
           {
             path: "",
             name: "productCreate",
-            component: () => import("./pages/product/step/createInformation")
+            component: () => import("./pages/product/step/createInformation"),
           },
           {
             path: "agreement",
@@ -209,6 +209,11 @@ const routes = [
         path: "withdraw",
         name: "MyWithdraw",
         component: () => import("./pages/mypage/MySale/withdraw"),
+      },
+      {
+        path: "withdraw-application",
+        name: "MyWithdrawApplication",
+        component: () => import("./pages/mypage/MySale/withdraw-app"),
       },
       {
         path: "history",

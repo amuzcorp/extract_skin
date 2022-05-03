@@ -3,7 +3,7 @@
     <b-container>
       <div class="mypage-row">
         <div class="mypage-nav-col"><MyPageNav /></div>
-        <div class="mypage-col">
+        <div class="mypage-col prl-5">
           <router-view />
         </div>
       </div>

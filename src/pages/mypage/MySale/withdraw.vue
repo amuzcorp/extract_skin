@@ -1,5 +1,5 @@
 <template>
-  <div class="my-sale-history-warp mb-100">
+  <div class="my-Withdraw-warp mb-100">
     <SalesHeader />
 
     <WithdrawBoard :boardTit="'출금내역'" :boardList="itemList" />
